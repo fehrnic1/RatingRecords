@@ -11,7 +11,8 @@ export const actions = {
             label: data.get("label"),
             runtime: data.get("runtime"),
             year: data.get("year"),
-            genre: data.getAll("genre")
+            genre: data.getAll("genre"),
+
            
         }
 

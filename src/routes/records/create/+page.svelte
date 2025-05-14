@@ -31,11 +31,9 @@
         <input name="year" class="form-control" type="number" />
     </div>
 
-    <div class="mb-3 input-group">
-        <span class="input-group-text">Genre</span>
-        <input name="genre" class="form-control" type="text" />
-        <input name="genre" class="form-control" type="text" />
-        <input name="genre" class="form-control" type="text" />
+    <div class="mb-3">
+        <label for="" class="form-label">Genre</label>
+        <input name="genre" class="form-control" type="text"/>
     </div>
 
 
