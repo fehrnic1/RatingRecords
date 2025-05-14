@@ -71,7 +71,7 @@ async function createRecord(record) {
   return null;
 }
 
-////////// UPDTAE RECORD //////////
+////////// UPDTAE RECORD ///////////
 async function updateRecord(record) {
   try {
     let id = record._id;
