@@ -1,0 +1,27 @@
+import db from "$lib/db.js"
+
+export async function load( {params} ){
+   /* console.log(params.record_id) */
+    return {
+        record: await db.getRecord(params.record_id)
+    }
+}
+
+/* Für Update der Record-Details */
+export const actions ={
+    update: async ({request}) => {
+        const data = await request.formData();
+        console.log(data)
+        let record ={
+            _id: data.get("id"),
+            artist: data.get("artist"),
+            label: data.get("label"),
+            runtime: data.get("runtime"),
+            year: data.get("year"),
+            genre: data.get("genre")
+        }
+
+        await db.updateRecord(record);
+        return{success: true}
+    }
+}
