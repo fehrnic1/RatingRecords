@@ -5,7 +5,7 @@
 
 
 <div class="record-card">
-    <div><img class="img-fluid" src=/EveryBridgeBurning.jpg alt="" /></div>
+    <div><img class="img-fluid" src=/default_artisting.jpg alt="" /></div>
     <div class="details">
         <div class="title">{artist}</div>
     </div>

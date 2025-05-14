@@ -6,8 +6,6 @@ const client = new MongoClient(DB_URI);
 await client.connect();
 const db = client.db("RatingRecords"); // select database
 
-
-
 //////////////////////////////////////////
 // RECORDS ///////////////////////////////
 //////////////////////////////////////////
@@ -18,7 +16,6 @@ async function getRecords() {
 
   try {
     const collection = db.collection("records");
-
 
     // You can specify a query/filter here
     // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
@@ -94,53 +91,6 @@ async function updateRecord(record) {
   return null;
 }
 
-//////////////////////////////////////////
-// Artists ///////////////////////////////
-//////////////////////////////////////////
-
-////////// GET ALL ARTISTS //////////
-async function getArtists() {
-  let artists = [];
-
-  try {
-    const collection = db.collection("records");
-    const query = {};
-
-    // Nur das 'artist'-Feld abfragen
-    const records = await collection.find(query, { projection: { artist: 1, _id: 0 } }).toArray();
-    // Nur artist-Werte extrahieren
-    artists = records.map(record => record.artist);
-    // Duplikate entfernen
-    artists = [...new Set(artists)];
-
-  } catch (error) {
-    console.error(error);
-  }
-
-  return artists;
-}
-
-////////// GET ARTISTS BY NAME //////////
-async function getArtist(d) {
-  let artist = null;
-  try {
-    const collection = db.collection("records");
-
-    const query = { _id: new ObjectId(artist) }; // filter by id
-    artist = await collection.findOne(query);
-
-    if (!artist) {
-      console.log("No artist with name " + artist);
-      // TODO: errorhandling
-    } else {
-      record._id = record._id.toString(); // convert ObjectId to String
-    }
-  } catch (error) {
-    // TODO: errorhandling
-    console.log(error.message);
-  }
-  return artist;
-}
 
 
 // delete movie by id
@@ -175,12 +125,6 @@ export default {
   getRecord,
   createRecord,
   updateRecord,
-  getArtists,
-
-
-
-
-
  
   deleteMovie,
 };
