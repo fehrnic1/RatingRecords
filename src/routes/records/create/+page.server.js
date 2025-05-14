@@ -12,12 +12,9 @@ export const actions = {
             runtime: data.get("runtime"),
             year: data.get("year"),
             genre: data.getAll("genre"),
-
-           
         }
 
         await db.createRecord(record);
-
         return {success: true}
     }
 }
