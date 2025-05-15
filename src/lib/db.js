@@ -26,7 +26,7 @@ async function getRecords() {
 
     records.forEach((record) => {
       record._id = record._id.toString(); // convert ObjectId to String
-  
+
 
     });
 
@@ -56,6 +56,57 @@ async function getRecord(id) {
     console.log(error.message);
   }
   return record;
+}
+
+////////// GET RECORDS BY ARTIST ////////////////////////////////////////////////////////////////////////
+async function getRecordByArtist(id) {
+  let records = [];
+
+  try {
+    const recCol = db.collection("artists");
+
+    // You can specify a query/filter here
+    // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
+
+    /* Query to 
+    - Match id to artist
+    - Match artist.name to record.artist.name */
+    const query = [
+      {
+        '$match': {
+          '_id': {
+            '$eq': new ObjectId(artistID)
+          }
+        }
+      }, {
+        '$lookup': {
+          'from': 'records',
+          'localField': 'name',
+          'foreignField': 'artist',
+          'as': 'records'
+        }
+      }, {
+        '$project': {
+          '_id': 0,
+          'records': 1
+        }
+      }
+    ];
+
+    // Get all objects that match the query
+    records = await recCol.find(query).toArray();
+
+    records.forEach((record) => {
+      record._id = records._id.toString(); // convert ObjectId to String
+
+
+    });
+
+  } catch (error) {
+    console.log(error);
+    // TODO: errorhandling
+  }
+  return records;
 }
 
 ////////// CREATE RECORD ////////////////////////////////////////////////////////////////////////
@@ -256,7 +307,7 @@ export default {
   getRecord,
   createRecord,
   updateRecord,
- 
+
   getArtists,
   getArtist,
   createArtist,

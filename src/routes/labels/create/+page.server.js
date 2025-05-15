@@ -16,7 +16,9 @@ export const actions = {
         let label = {
             name: data.get("name"),
             originCity: data.get("originCity"),
-            originCountry: data.get("originCountry")          
+            originCountry: data.get("originCountry"),
+            bandCampLink: data.get("bandCampLink")
+
         }
         await db.createLabel(label);
         return { success: true }
