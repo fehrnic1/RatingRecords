@@ -18,7 +18,10 @@ export const actions ={
             label: data.get("label"),
             runtime: data.get("runtime"),
             year: data.get("year"),
-            genre: data.get("genre")
+            genre: data.get("genre"),
+            lastlisten: data.get("lastlisten"),
+            rating: data.get("rating"),
+            highlights: data.get("highlights")
         }
 
         await db.updateRecord(record);
