@@ -4,6 +4,7 @@
     let artists = data.artists;
 </script>
 
+<a class="btn btn-primary" role="button" href="/artists/create">Add</a>
 
   <h1>Artists</h1>
   <div class="row">

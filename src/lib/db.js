@@ -147,10 +147,10 @@ async function getArtist(id) {
 }
 
 ////////// CREATE ARTIST ////////////////////////////////////////////////////////////////////////
-async function createArtist(record) {
+async function createArtist(artist) {
   try {
-    const collection = db.collection("records");
-    const result = await collection.insertOne(record);
+    const collection = db.collection("artists");
+    const result = await collection.insertOne(artist);
     return result.insertedId.toString(); // convert ObjectId to String
   } catch (error) {
     // TODO: errorhandling
