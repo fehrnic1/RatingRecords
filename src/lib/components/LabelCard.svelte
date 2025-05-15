@@ -3,10 +3,11 @@
 </script>
 
 <div class="record-card">
-    <div><img class="img-fluid" src=/default_artist.jpg alt="" /></div>
+    <div><img class="img-fluid" src="/default_artist.jpg" alt="" /></div>
     <div class="details">
-        <div class="title">{label.name}</div>
-        <div>Location: {label.locationCity} ({label.locationCountry})</div>
+        <div class="title">
+            <a href={"/labels/" + label._id}>{label.name}</a>
+        </div>
     </div>
 </div>
 
