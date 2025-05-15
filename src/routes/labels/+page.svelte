@@ -1,5 +1,4 @@
 <script>
-   /*  import { records } from "./data.js"; */
   import LabelCard from "$lib/components/LabelCard.svelte";
   let {data} = $props();
   let labels = data.labels;

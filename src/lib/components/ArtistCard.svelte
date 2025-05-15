@@ -5,9 +5,12 @@
 
 
 <div class="record-card">
-    <div><img class="img-fluid" src=/default_artisting.jpg alt="" /></div>
+    <div><img class="img-fluid" src=/default_artist.jpg alt="" /></div>
     <div class="details">
-        <div class="title">{artist}</div>
+        <div class="title">{artist.name}</div>
+        <div>Origin: {artist.originCity} ({artist.originCountry})</div>
+        <div>Formed in: {artist.formedIn}</div>
+        <div>Active: {artist.active}</div>
     </div>
 </div>
 

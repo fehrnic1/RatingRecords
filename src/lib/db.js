@@ -146,8 +146,8 @@ async function getArtist(id) {
   return artist;
 }
 
-////////// CREATE RECORD ////////////////////////////////////////////////////////////////////////
-async function createRecord(record) {
+////////// CREATE ARTIST ////////////////////////////////////////////////////////////////////////
+async function createArtist(record) {
   try {
     const collection = db.collection("records");
     const result = await collection.insertOne(record);
@@ -159,22 +159,61 @@ async function createRecord(record) {
   return null;
 }
 
-////////// UPDTAE RECORD /////////////////////////////////////////////////////////////////////////////////////
-async function updateRecord(record) {
-  try {
-    let id = record._id;
-    delete record._id; // delete the _id from the object, because the _id cannot be updated
-    const collection = db.collection("records");
-    const query = { _id: new ObjectId(id) }; // filter by id
-    const result = await collection.updateOne(query, { $set: record });
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+// LABELS /////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    if (result.matchedCount === 0) {
+////////// GET ALL LABELS ////////////////////////////////////////////////////////////////////////
+async function getLabels() {
+  let labels = [];
+
+  try {
+    const collection = db.collection("labels");
+
+    // You can specify a query/filter here
+    // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
+    const query = {};
+
+    // Get all objects that match the query
+    labels = await collection.find(query).toArray();
+    labels.forEach((label) => {
+      label._id = label._id.toString(); // convert ObjectId to String
+    });
+
+  } catch (error) {
+    console.log(error);
+    // TODO: errorhandling
+  }
+  return labels;
+}
+
+////////// GET LABEL BY ID ////////////////////////////////////////////////////////////////////////
+async function getLabel(id) {
+  let label = null;
+  try {
+    const collection = db.collection("labels");
+    const query = { _id: new ObjectId(id) }; // filter by id
+    label = await collection.findOne(query);
+
+    if (!label) {
       console.log("No record with id " + id);
       // TODO: errorhandling
     } else {
-      console.log("Record with id " + id + " has been updated.");
-      return id;
+      label._id = label._id.toString(); // convert ObjectId to String
     }
+  } catch (error) {
+    // TODO: errorhandling
+    console.log(error.message);
+  }
+  return label;
+}
+
+////////// CREATE LABEL ////////////////////////////////////////////////////////////////////////
+async function createLabel(label) {
+  try {
+    const collection = db.collection("labels");
+    const result = await collection.insertOne(label);
+    return result.insertedId.toString(); // convert ObjectId to String
   } catch (error) {
     // TODO: errorhandling
     console.log(error.message);
@@ -220,6 +259,11 @@ export default {
  
   getArtists,
   getArtist,
+  createArtist,
+
+  getLabels,
+  getLabel,
+  createLabel,
 
   deleteMovie,
 };

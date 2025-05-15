@@ -1,12 +1,12 @@
 <script>
-    let { record } = $props();
+    let { label } = $props();
 </script>
 
 <div class="record-card">
-    <div><img class="img-fluid" src={record.label.logo} alt="" /></div>
+    <div><img class="img-fluid" src=/default_artist.jpg alt="" /></div>
     <div class="details">
-        <div class="title">{record.label.name}</div>
-        <div>Location: {record.label.location} ({record.label.country})</div>
+        <div class="title">{label.name}</div>
+        <div>Location: {label.locationCity} ({label.locationCountry})</div>
     </div>
 </div>
 

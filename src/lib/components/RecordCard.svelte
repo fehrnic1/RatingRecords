@@ -1,5 +1,5 @@
 <script>
-    let { record, artist } = $props();
+    let { record } = $props();
 </script>
 
 <div class="record-card">
