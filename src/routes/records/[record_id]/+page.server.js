@@ -1,9 +1,9 @@
 import db from "$lib/db.js"
 
 export async function load( {params} ){
-   /* console.log(params.record_id) */
+    let record = await db.getRecord(params.record_id);
     return {
-        record: await db.getRecord(params.record_id)
+        record: record,
     }
 }
 

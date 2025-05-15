@@ -6,25 +6,28 @@ const client = new MongoClient(DB_URI);
 await client.connect();
 const db = client.db("RatingRecords"); // select database
 
-//////////////////////////////////////////
-// RECORDS ///////////////////////////////
-//////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+// RECORDS /////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-////////// GET ALL RECORDS //////////
+////////// GET ALL RECORDS ////////////////////////////////////////////////////////////////////////
 async function getRecords() {
   let records = [];
 
   try {
-    const collection = db.collection("records");
+    const recCol = db.collection("records");
 
     // You can specify a query/filter here
     // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
     const query = {};
 
     // Get all objects that match the query
-    records = await collection.find(query).toArray();
+    records = await recCol.find(query).toArray();
+
     records.forEach((record) => {
       record._id = record._id.toString(); // convert ObjectId to String
+  
+
     });
 
   } catch (error) {
@@ -34,7 +37,7 @@ async function getRecords() {
   return records;
 }
 
-////////// GET RECORD BY ID //////////
+////////// GET RECORD BY ID ////////////////////////////////////////////////////////////////////////
 async function getRecord(id) {
   let record = null;
   try {
@@ -55,7 +58,7 @@ async function getRecord(id) {
   return record;
 }
 
-////////// CREATE RECORD //////////
+////////// CREATE RECORD ////////////////////////////////////////////////////////////////////////
 async function createRecord(record) {
   try {
     const collection = db.collection("records");
@@ -68,7 +71,7 @@ async function createRecord(record) {
   return null;
 }
 
-////////// UPDTAE RECORD ///////////
+////////// UPDTAE RECORD /////////////////////////////////////////////////////////////////////////
 async function updateRecord(record) {
   try {
     let id = record._id;
@@ -92,6 +95,95 @@ async function updateRecord(record) {
 }
 
 
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ARTISTS /////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////// GET ALL ARTISTSS ////////////////////////////////////////////////////////////////////////
+async function getArtists() {
+  let artists = [];
+
+  try {
+    const collection = db.collection("artists");
+
+    // You can specify a query/filter here
+    // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
+    const query = {};
+
+    // Get all objects that match the query
+    artists = await collection.find(query).toArray();
+    artists.forEach((artist) => {
+      artist._id = artist._id.toString(); // convert ObjectId to String
+    });
+
+  } catch (error) {
+    console.log(error);
+    // TODO: errorhandling
+  }
+  return artists;
+}
+
+////////// GET ARTIST BY ID ////////////////////////////////////////////////////////////////////////
+async function getArtist(id) {
+  let artist = null;
+  try {
+    const collection = db.collection("artists");
+    const query = { _id: new ObjectId(id) }; // filter by id
+    artist = await collection.findOne(query);
+
+    if (!artist) {
+      console.log("No record with id " + id);
+      // TODO: errorhandling
+    } else {
+      artist._id = artist._id.toString(); // convert ObjectId to String
+    }
+  } catch (error) {
+    // TODO: errorhandling
+    console.log(error.message);
+  }
+  return artist;
+}
+
+////////// CREATE RECORD ////////////////////////////////////////////////////////////////////////
+async function createRecord(record) {
+  try {
+    const collection = db.collection("records");
+    const result = await collection.insertOne(record);
+    return result.insertedId.toString(); // convert ObjectId to String
+  } catch (error) {
+    // TODO: errorhandling
+    console.log(error.message);
+  }
+  return null;
+}
+
+////////// UPDTAE RECORD /////////////////////////////////////////////////////////////////////////////////////
+async function updateRecord(record) {
+  try {
+    let id = record._id;
+    delete record._id; // delete the _id from the object, because the _id cannot be updated
+    const collection = db.collection("records");
+    const query = { _id: new ObjectId(id) }; // filter by id
+    const result = await collection.updateOne(query, { $set: record });
+
+    if (result.matchedCount === 0) {
+      console.log("No record with id " + id);
+      // TODO: errorhandling
+    } else {
+      console.log("Record with id " + id + " has been updated.");
+      return id;
+    }
+  } catch (error) {
+    // TODO: errorhandling
+    console.log(error.message);
+  }
+  return null;
+}
+
+////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 
 // delete movie by id
 // returns: id of the deleted movie or null, if movie could not be deleted
@@ -126,5 +218,8 @@ export default {
   createRecord,
   updateRecord,
  
+  getArtists,
+  getArtist,
+
   deleteMovie,
 };

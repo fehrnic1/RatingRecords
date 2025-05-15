@@ -13,6 +13,7 @@
 <form method="POST" action="?/update">
     <input name="id" type="hidden" value={data.record._id} />
 
+
     <div class="mb-3">
         <label class="form-lable" for="">Title</label>
         <input
@@ -22,6 +23,8 @@
             type="text"
         />
     </div>
+
+
     <div class="mb-3">
         <label class="form-lable" for="">Artist</label>
         <input
@@ -31,6 +34,8 @@
             type="text"
         />
     </div>
+
+
     <div class="mb-3">
         <label class="form-lable" for="">Label</label>
         <input

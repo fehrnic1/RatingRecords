@@ -1,19 +1,24 @@
 <script>
-    let { form } = $props();
+    let { form, data } = $props();
+    let artists = data.artists;
 </script>
 
 <a class="btn btn-danger" role="button" href="/records">Back</a>
 <h1>Add a record</h1>
 <form method="POST" action="?/create">
-
     <div class="mb-3">
         <label for="" class="form-label">Title</label>
         <input name="title" class="form-control" type="text" />
     </div>
 
     <div class="mb-3">
-        <label for="" class="form-label">Artist</label>
-        <input name="artist" class="form-control" type="text" />
+        <label for="artist" class="form-label">Artist</label>
+        <select name="artist" class="form-select" required>
+            <option selected disabled>Choose Artist</option>
+            {#each artists as artist}
+                <option value={artist.name}>{artist.name}</option>
+            {/each}
+        </select>
     </div>
 
     <div class="mb-3">
@@ -33,13 +38,10 @@
 
     <div class="mb-3">
         <label for="" class="form-label">Genre</label>
-        <input name="genre" class="form-control" type="text"/>
+        <input name="genre" class="form-control" type="text" />
     </div>
 
-
-    <button type="submit" class="btn btn-primary"> 
-       Add Record
-    </button>
+    <button type="submit" class="btn btn-primary"> Add Record </button>
 </form>
 
 {#if form?.success}
