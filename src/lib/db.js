@@ -59,9 +59,9 @@ async function getRecord(id) {
 }
 
 ////////// GET RECORDS BY ARTIST ////////////////////////////////////////////////////////////////////////
-async function getRecordByArtist(id) {
+async function getRecordsByArtist(id) {
   let records = [];
-
+  let artistId = id.toString();
   try {
     const recCol = db.collection("artists");
 
@@ -75,10 +75,12 @@ async function getRecordByArtist(id) {
       {
         '$match': {
           '_id': {
-            '$eq': new ObjectId(artistID)
+            '$eq': new ObjectId(artistId)
           }
         }
-      }, {
+      }, 
+      
+      {
         '$lookup': {
           'from': 'records',
           'localField': 'name',
@@ -90,6 +92,14 @@ async function getRecordByArtist(id) {
           '_id': 0,
           'records': 1
         }
+      }, {
+        '$unwind': {
+          'path': '$records'
+        }
+      }, {
+        '$replaceRoot': {
+          'newRoot': '$records'
+        }
       }
     ];
 
@@ -97,16 +107,17 @@ async function getRecordByArtist(id) {
     records = await recCol.find(query).toArray();
 
     records.forEach((record) => {
-      record._id = records._id.toString(); // convert ObjectId to String
-
-
+      record._id = record._id.toString(); // convert ObjectId to String
     });
+
 
   } catch (error) {
     console.log(error);
     // TODO: errorhandling
   }
   return records;
+  
+
 }
 
 ////////// CREATE RECORD ////////////////////////////////////////////////////////////////////////
@@ -311,6 +322,7 @@ export default {
   getArtists,
   getArtist,
   createArtist,
+  getRecordsByArtist,
 
   getLabels,
   getLabel,
