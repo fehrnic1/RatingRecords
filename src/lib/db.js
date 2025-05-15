@@ -61,9 +61,12 @@ async function getRecord(id) {
 ////////// GET RECORDS BY ARTIST ////////////////////////////////////////////////////////////////////////
 async function getRecordsByArtist(id) {
   let records = [];
-  let artistId = id.toString();
+
+
+
   try {
-    const recCol = db.collection("artists");
+    const artCol = db.collection("artists");
+    const recCol = db.collection("records");
 
     // You can specify a query/filter here
     // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
@@ -73,38 +76,42 @@ async function getRecordsByArtist(id) {
     - Match artist.name to record.artist.name */
     const query = [
       {
-        '$match': {
-          '_id': {
-            '$eq': new ObjectId(artistId)
+        $match: {
+          _id: {
+            $eq: new ObjectId(id)
           }
         }
-      }, 
-      
-      {
-        '$lookup': {
-          'from': 'records',
-          'localField': 'name',
-          'foreignField': 'artist',
-          'as': 'records'
+      }, {
+        $lookup: {
+          from: "records",
+          localField: "name",
+          foreignField: "artist",
+          as: "records"
         }
       }, {
-        '$project': {
-          '_id': 0,
-          'records': 1
+        $project: {
+          _id: 0,
+          records: 1
         }
       }, {
-        '$unwind': {
-          'path': '$records'
+        $unwind: {
+          path: "$records"
         }
       }, {
-        '$replaceRoot': {
-          'newRoot': '$records'
+        $replaceRoot: {
+          newRoot: "$records"
         }
       }
     ];
 
+
+
+    
+
+   
+
     // Get all objects that match the query
-    records = await recCol.find(query).toArray();
+    records = await artCol.find(query).toArray();
 
     records.forEach((record) => {
       record._id = record._id.toString(); // convert ObjectId to String
@@ -116,7 +123,7 @@ async function getRecordsByArtist(id) {
     // TODO: errorhandling
   }
   return records;
-  
+
 
 }
 

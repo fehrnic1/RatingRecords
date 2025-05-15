@@ -27,7 +27,7 @@
                 Origin: {artist.originCity} ({artist.originCountry})
             </div>
             <div>Formed in: {artist.formedIn}</div>
-            <div><a href={artist.bandCampLink}>Band Camp Link</a></div>
+            <div><a href={artist.bandCampLink} target="_blank">Band Camp Link</a></div>
         </div>
     </div>
 </div>

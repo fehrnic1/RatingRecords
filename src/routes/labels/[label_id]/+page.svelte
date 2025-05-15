@@ -21,7 +21,7 @@
         </div>
         <div class="col md-8">
             <div>Origin: {data.label.originCity} ({data.label.originCountry})</div>
-            <div><a href={data.label.bandCampLink}>Band Camp Link</a></div>
+            <div><a href={data.label.bandCampLink} target="_blank">Band Camp Link</a></div>
 
         </div>
     </div>
