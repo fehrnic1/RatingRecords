@@ -36,9 +36,9 @@
 </div>
 
 <!-- ///////////////////////////  CONTAINER BTM  ///////////////////////////////////// -->
-<div class="container">
-    <div class="row">
-        <div class="col md-8">
+
+   
+     
             <!-- Details-Update -->
             <form method="POST" action="?/update">
                 <!-- non-updateable Data -->
@@ -97,6 +97,6 @@
                     {/if}
                 </div>
             </form>
-        </div>
-    </div>
-</div>
+        
+
+
