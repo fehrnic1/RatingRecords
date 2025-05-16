@@ -1,6 +1,8 @@
 <script>
+    import RecordCard from "$lib/components/RecordCard.svelte";
     let { data } = $props();
     let label = data.label;
+    let records = data.records;
 </script>
 
 <div class="mb-3">
@@ -25,5 +27,16 @@
             <div><a href={label.bandCampLink} target="_blank">Band Camp Link</a></div>
 
         </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        {#each records as record}
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-2 gx-2">
+                <RecordCard {record}></RecordCard>
+            </div>
+        {/each}
     </div>
 </div>

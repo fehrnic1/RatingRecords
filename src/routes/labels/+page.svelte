@@ -4,7 +4,7 @@
   let labels = data.labels;
   </script>
   
-<a class="btn btn-primary" role="button" href="/labels/create">Add</a>
+<a class="btn btn-primary" role="button" href="/labels/create">Add a Label</a>
 
   <h1>Labels</h1>
 

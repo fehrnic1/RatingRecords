@@ -5,7 +5,7 @@
   </script>
   
 
-    <a class="btn btn-primary" role="button" href="/records/create">Add</a>
+    <a class="btn btn-primary" role="button" href="/records/create">Add a Record</a>
  
 
   <h1>Records</h1>

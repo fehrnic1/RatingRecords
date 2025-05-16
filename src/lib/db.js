@@ -117,6 +117,67 @@ async function getRecordsByArtist(id) {
 
 }
 
+////////// GET RECORDS BY Label ////////////////////////////////////////////////////////////////////////
+async function getRecordsByLabel(id) {
+  let records = [];
+
+
+
+  try {
+    const artCol = db.collection("labels");
+
+    // You can specify a query/filter here
+    // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
+
+
+    const query = [
+      {
+        $match: {
+          _id: {
+            $eq: new ObjectId(id)
+          }
+        }
+      }, {
+        $lookup: {
+          from: "records",
+          localField: "name",
+          foreignField: "label",
+          as: "records"
+        }
+      }, {
+        $project: {
+          _id: 0,
+          records: 1
+        }
+      }, {
+        $unwind: {
+          path: "$records"
+        }
+      }, {
+        $replaceRoot: {
+          newRoot: "$records"
+        }
+      }
+    ];
+
+    // Get all objects that match the query
+    // aggregate, because complex query/pipeline
+    records = await artCol.aggregate(query).toArray();
+
+    records.forEach((record) => {
+      record._id = record._id.toString(); // convert ObjectId to String
+    });
+
+
+  } catch (error) {
+    console.log(error);
+    // TODO: errorhandling
+  }
+  return records;
+
+
+}
+
 ////////// GET OLD RECORDS ////////////////////////////////////////////////////////////////////////
 async function getOldRecords() {
   let records = [];
@@ -404,6 +465,7 @@ export default {
   getLabels,
   getLabel,
   createLabel,
+  getRecordsByLabel,
 
   deleteMovie,
 };
