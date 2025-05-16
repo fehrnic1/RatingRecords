@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col md-4 mb-2 gx-2">
             <div>
-                <img src="/default_artist.jpg" alt="" height="400" />
+                <img src={artist.logo} alt="" height="400" />
             </div>
         </div>
         <div class="col md-8">

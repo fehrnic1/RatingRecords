@@ -18,7 +18,8 @@ export const actions = {
             originCity: data.get("originCity"),
             originCountry: data.get("originCountry"),
             formedIn: data.get("formedIn"),
-            bandCampLink: data.get("bandCampLink")
+            bandCampLink: data.get("bandCampLink"),
+            logo: data.get("logo"),
           
         }
         await db.createArtist(artist);

@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col md-4">
             <div>
-                <img src="/default_record.jpg" alt="" height="300" />
+                <img src={record.cover} alt="" height="300" />
             </div>
         </div>
 

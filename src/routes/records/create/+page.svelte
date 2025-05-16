@@ -7,6 +7,11 @@
 <a class="btn btn-danger" role="button" href="/records">Back</a>
 <h1>Add a record</h1>
 <form method="POST" action="?/create">
+
+    <div class="mb-3">
+        <input value="/default_record.jpg" type="hidden" name="cover" class="form-control"/>
+    </div>
+   
     <div class="mb-3">
         <label for="" class="form-label">Title</label>
         <input name="title" class="form-control" type="text" />

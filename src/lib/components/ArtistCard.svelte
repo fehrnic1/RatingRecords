@@ -3,7 +3,7 @@
 </script>
 
 <div class="record-card">
-    <div><img class="img-fluid" src="/default_artist.jpg" alt="" /></div>
+    <div><img class="img-fluid" src={artist.logo} alt="" /></div>
     <div class="details">
         <div class="title">
             <a href={"/artists/" + artist._id}>{artist.name}</a>

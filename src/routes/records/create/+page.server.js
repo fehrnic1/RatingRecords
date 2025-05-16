@@ -20,7 +20,8 @@ export const actions = {
             genre: data.get("genre"),
             lastlisten: data.get("lastlisten"),
             rating: data.get("rating"),
-            highlights: data.get("highlights")            
+            highlights: data.get("highlights"),
+            cover: data.get("cover")            
         }
         await db.createRecord(record);
         return { success: true }

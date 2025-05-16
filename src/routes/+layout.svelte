@@ -1,14 +1,23 @@
 <script>
     import "./styles.css";
     let { children } = $props();
-  </script>
+</script>
 
 <nav
     class="navbar navbar-expand-lg bg-body-tertiary bg-dark"
     data-bs-theme="dark"
 >
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">RatingRecords</a>
+        <a class="navbar-brand" href="/">
+            <img
+                src="/navbarvinyl.png"
+                width="30"
+                height="30"
+                class="d-inline-block align-top"
+                alt=""
+            />
+            RatingRecords
+        </a>
         <button
             class="navbar-toggler"
             type="button"
@@ -30,8 +39,6 @@
                     >
                 </li>
 
-
-
                 <li class="nav-item">
                     <a
                         class="nav-link active"
@@ -46,8 +53,6 @@
                         href="/labels">Labels</a
                     >
                 </li>
-
-
             </ul>
         </div>
     </div>

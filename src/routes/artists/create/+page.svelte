@@ -30,6 +30,10 @@
         <input name="bandCampLink" class="form-control" type="string" />
     </div>
 
+    <div class="mb-3">
+        <input name="logo" class="form-control" type="hidden" value="defualt_aritst.jpg" />
+    </div>
+
     <button type="submit" class="btn btn-primary"> Add Artist </button>
 </form>
 
