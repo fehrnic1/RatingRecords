@@ -96,7 +96,7 @@
 
 
 
-
+        
         <label for="" class="form-label">Rating</label>
         <input name="rating" class="form-control" type="text" />
     </div>
