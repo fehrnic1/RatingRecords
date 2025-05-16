@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col md-4">
             <div>
-                <img src="/default_label.jpg" alt="" height="400" />
+                <img src={label.logo} alt="" height="400" />
             </div>
         </div>
         <div class="col md-8">

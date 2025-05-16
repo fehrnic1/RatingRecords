@@ -60,6 +60,43 @@
     </div>
 
     <div class="mb-3">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <label for="" class="form-label">Rating</label>
         <input name="rating" class="form-control" type="text" />
     </div>
@@ -76,6 +113,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <div class="col-md-6">
+
     <div class="rating-card p-4">
         <h5 class="mb-4">Rating</h5>
         <div class="star-rating animated-stars">
@@ -91,6 +129,7 @@
             <label for="star1" class="bi bi-star-fill"></label>
         </div>
     </div>
+
 </div>
 
 <style>

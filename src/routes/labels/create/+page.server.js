@@ -18,7 +18,7 @@ export const actions = {
             originCity: data.get("originCity"),
             originCountry: data.get("originCountry"),
             bandCampLink: data.get("bandCampLink"),
-            cover: data.get("logo")
+            logo: data.get("logo")
 
         }
         await db.createLabel(label);

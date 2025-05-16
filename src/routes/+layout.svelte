@@ -4,7 +4,7 @@
 </script>
 
 <nav
-    class="navbar navbar-expand-lg bg-body-tertiary bg-dark"
+    class="navbar navbar-expand-md bg-body-tertiary bg-dark"
     data-bs-theme="dark"
 >
     <div class="container-fluid">
@@ -58,6 +58,6 @@
     </div>
 </nav>
 
-<div class="container mt-3">
+<div>
     {@render children()}
 </div>

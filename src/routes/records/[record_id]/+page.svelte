@@ -3,19 +3,8 @@
     let record = data.record;
 </script>
 
-<!-- ///////////////////////////  CONTAINER TOP  ///////////////////////////////////// -->
-<div class="container mb-3">
-    <a class="btn btn-danger" role="button" href="/records">Back</a>
-</div>
-
 <!-- ///////////////////////////  CONTAINER MID  ///////////////////////////////////// -->
-<div class="container mb-3">
-    <div class="row">
-        <div>
-            <!-- <h1>{data.record.title}</h1> -->
-        </div>
-    </div>
-
+<div class="container detailCard">
     <div class="row">
         <div class="col md-4">
             <div>
@@ -31,73 +20,176 @@
             <div>Year: {record.year}</div>
             <div>Genre: {record.genre}</div>
         </div>
-        <div class="col md-4"></div>
+        <div class="col addButton">
+            <a class="btn btn-danger" role="button" href="/records">Back</a>
+        </div>
     </div>
 </div>
 
 <!-- ///////////////////////////  CONTAINER BTM  ///////////////////////////////////// -->
 
-   
-     
-            <!-- Details-Update -->
-            <form method="POST" action="?/update">
-                <!-- non-updateable Data -->
-                <input name="id" type="hidden" value={record._id} />
-                <input name="cover" type="hidden" value={record.cover} />
-                <input name="title" type="hidden" value={record.title} />
-                <input
-                    name="artist"
-                    type="hidden"
-                    value={record._artist}
-                />
-                <input name="label" type="hidden" value={record.label} />
-                <input
-                    name="runtime"
-                    type="hidden"
-                    value={record.runtime}
-                />
-                <input name="year" type="hidden" value={record.year} />
-                <input name="genre" type="hidden" value={record.genre} />
+<!-- Details-Update -->
 
-                <!-- updateable Data -->
-                <div class="container mb-3">
-                    <div class="mb-3">
-                        <label class="form-lable" for="">Last Listen:</label>
-                        <input
-                            value={record.lastlisten}
-                            name="lastlisten"
-                            class="form-control"
-                            type="date"
-                        />
-                    </div>
+<form method="POST" action="?/update">
+    <!-- non-updateable Data -->
+    <input name="id" type="hidden" value={record._id} />
+    <input name="cover" type="hidden" value={record.cover} />
+    <input name="title" type="hidden" value={record.title} />
+    <input name="artist" type="hidden" value={record.artist} />
+    <input name="label" type="hidden" value={record.label} />
+    <input name="runtime" type="hidden" value={record.runtime} />
+    <input name="year" type="hidden" value={record.year} />
+    <input name="genre" type="hidden" value={record.genre} />
 
-                    <div class="mb-3">
-                        <label class="form-lable" for="">Rating</label>
-                        <input
-                            value={record.rating}
-                            name="rating"
-                            class="form-control"
-                            type="number"
-                        />
-                    </div>
+    <!-- updateable Data -->
 
-                    <div class="mb-3">
-                        <label class="form-lable" for="">Highlights</label>
-                        <input
-                            value={record.highlights}
-                            name="highlights"
-                            class="form-control"
-                            type="text"
-                        />
-                    </div>
-
-                    <button class="btn btn-primary mt-3">Update</button>
-
-                    {#if form?.success}
-                        Record {record.title} updated
-                    {/if}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label class="form-lable" for="">Last Listen:</label>
+                    <input
+                        value={record.lastlisten}
+                        name="lastlisten"
+                        class="form-control"
+                        type="date"
+                    />
                 </div>
-            </form>
-        
+                <div class="mb-3">
+                    <label class="form-lable" for="">Highlights</label>
+                    <input
+                        value={record.highlights}
+                        name="highlights"
+                        class="form-control"
+                        type="text"
+                    />
+                </div>
+            </div>
+
+            <div class="col">
+                <link
+                    rel="stylesheet"
+                    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+                />
+
+                <div class="mb-3">
+                    <label class="form-label">Rating</label><br />
+                    <div class="star-rating animated-stars">
+                        <input
+                            type="radio"
+                            id="star5"
+                            name="rating"
+                            value="5"
+                            checked={record.rating == 5}
+                        />
+                        <label for="star5" class="bi bi-star-fill"></label>
+
+                        <input
+                            type="radio"
+                            id="star4"
+                            name="rating"
+                            value="4"
+                            checked={record.rating == 4}
+                        />
+                        <label for="star4" class="bi bi-star-fill"></label>
+
+                        <input
+                            type="radio"
+                            id="star3"
+                            name="rating"
+                            value="3"
+                            checked={record.rating == 3}
+                        />
+                        <label for="star3" class="bi bi-star-fill"></label>
+
+                        <input
+                            type="radio"
+                            id="star2"
+                            name="rating"
+                            value="2"
+                            checked={record.rating == 2}
+                        />
+                        <label for="star2" class="bi bi-star-fill"></label>
+
+                        <input
+                            type="radio"
+                            id="star1"
+                            name="rating"
+                            value={"1"}
+                            checked={record.rating == 1}
+                        />
+                        <label for="star1" class="bi bi-star-fill"></label>
+                    </div>
+                </div>
+
+                <style>
+                    .star-rating {
+                        direction: rtl;
+                        display: inline-block;
+                        cursor: pointer;
+                    }
+
+                    .star-rating input {
+                        display: none;
+                    }
+
+                    .star-rating label {
+                        color: #ddd;
+                        font-size: 24px;
+                        padding: 0 2px;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                    }
+
+                    .star-rating label:hover,
+                    .star-rating label:hover ~ label,
+                    .star-rating input:checked ~ label {
+                        color: #ffc107;
+                    }
+                </style>
+
+                <script>
+                    document
+                        .querySelectorAll(".star-rating:not(.readonly) label")
+                        .forEach((star) => {
+                            star.addEventListener("click", function () {
+                                this.style.transform = "scale(1.2)";
+                                setTimeout(() => {
+                                    this.style.transform = "scale(1)";
+                                }, 200);
+                            });
+                        });
+                </script>
 
 
+
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <button class="btn btn-primary mt-3">Update</button>
+                    </div>
+                    <div class="col-6 mt-2 text-start">
+                        {#if form?.success}
+                            <p>{record.title} <br>has been updated!</p>
+                        {/if}
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- OLD RATING -->
+<!--  <div class="mb-3">
+                    <label class="form-lable" for="">Rating</label>
+                    <input
+                        value={record.rating}
+                        name="rating"
+                        class="form-control"
+                        type="number"
+                    />
+                </div> -->

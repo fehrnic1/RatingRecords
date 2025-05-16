@@ -2,3 +2,19 @@ body {
     background-color: black;
     color: white;
 }
+
+.container{
+    /* margin-left: 60px; */
+    margin-top: 10px
+}
+
+
+.addButton{
+    margin-top: 10px;
+    text-align: right;
+}
+
+.detailCard{
+     margin-top: 20px;
+}
+
