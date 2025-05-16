@@ -26,8 +26,6 @@ async function getRecords() {
 
     records.forEach((record) => {
       record._id = record._id.toString(); // convert ObjectId to String
-
-
     });
 
   } catch (error) {
@@ -71,9 +69,7 @@ async function getRecordsByArtist(id) {
     // You can specify a query/filter here
     // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
 
-    /* Query to 
-    - Match id to artist
-    - Match artist.name to record.artist.name */
+
     const query = [
       {
         $match: {
@@ -103,15 +99,10 @@ async function getRecordsByArtist(id) {
         }
       }
     ];
-
-
-
-    
-
-   
-
+ 
     // Get all objects that match the query
-    records = await artCol.find(query).toArray();
+    // aggregate, because complex query/pipeline
+    records = await artCol.aggregate(query).toArray();
 
     records.forEach((record) => {
       record._id = record._id.toString(); // convert ObjectId to String

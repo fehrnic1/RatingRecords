@@ -51,7 +51,7 @@
     
     <div class="mb-3">
         <label for="" class="form-label">Last Listen</label>
-        <input name="lastlisten" class="form-control" type="text" />
+        <input name="lastlisten" class="form-control" type="date" />
     </div>
 
     <div class="mb-3">

@@ -17,7 +17,7 @@
     </div>
 
     <div class="row">
-        <div class="col md-4">
+        <div class="col md-4 mb-2 gx-2">
             <div>
                 <img src="/default_artist.jpg" alt="" height="400" />
             </div>
@@ -27,7 +27,7 @@
                 Origin: {artist.originCity} ({artist.originCountry})
             </div>
             <div>Formed in: {artist.formedIn}</div>
-            <div><a href={artist.bandCampLink} target="_blank">Band Camp Link</a></div>
+            <div><a class="btn btn-danger mt-3" role="button" href={artist.bandCampLink} target="_blank">Band Camp</a></div>
         </div>
     </div>
 </div>
