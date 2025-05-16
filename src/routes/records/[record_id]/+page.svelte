@@ -74,7 +74,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">Rating</label><br />
-                    <div class="star-rating animated-stars">
+                    <div class="star-rating">
                         <input
                             type="radio"
                             id="star5"
@@ -136,7 +136,7 @@
                     .star-rating label {
                         color: #ddd;
                         font-size: 24px;
-                        padding: 0 2px;
+                        padding: 0px 2px;
                         cursor: pointer;
                         transition: all 0.2s ease;
                     }
@@ -148,18 +148,7 @@
                     }
                 </style>
 
-                <script>
-                    document
-                        .querySelectorAll(".star-rating:not(.readonly) label")
-                        .forEach((star) => {
-                            star.addEventListener("click", function () {
-                                this.style.transform = "scale(1.2)";
-                                setTimeout(() => {
-                                    this.style.transform = "scale(1)";
-                                }, 200);
-                            });
-                        });
-                </script>
+
 
 
 
