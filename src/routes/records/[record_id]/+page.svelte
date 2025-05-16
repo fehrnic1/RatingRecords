@@ -43,6 +43,7 @@
             <form method="POST" action="?/update">
                 <!-- non-updateable Data -->
                 <input name="id" type="hidden" value={record._id} />
+                <input name="cover" type="hidden" value={record.cover} />
                 <input name="title" type="hidden" value={record.title} />
                 <input
                     name="artist"

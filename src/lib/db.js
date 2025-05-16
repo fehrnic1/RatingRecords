@@ -64,7 +64,6 @@ async function getRecordsByArtist(id) {
 
   try {
     const artCol = db.collection("artists");
-    const recCol = db.collection("records");
 
     // You can specify a query/filter here
     // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
@@ -99,10 +98,88 @@ async function getRecordsByArtist(id) {
         }
       }
     ];
- 
+
     // Get all objects that match the query
     // aggregate, because complex query/pipeline
     records = await artCol.aggregate(query).toArray();
+
+    records.forEach((record) => {
+      record._id = record._id.toString(); // convert ObjectId to String
+    });
+
+
+  } catch (error) {
+    console.log(error);
+    // TODO: errorhandling
+  }
+  return records;
+
+
+}
+
+////////// GET OLD RECORDS ////////////////////////////////////////////////////////////////////////
+async function getOldRecords() {
+  let records = [];
+  try {
+    const artCol = db.collection("records");
+
+
+    const query = [
+      {
+        $set: {
+          'lastlisten': {
+            $toDate: '$lastlisten'
+          }
+        }
+      }, {
+        $match: {
+          $expr: {
+            $gte: [
+              {
+                $divide: [
+                  {
+                    $subtract: [
+                      '$$NOW', '$lastlisten'
+                    ]
+                  }, 1000 * 60 * 60 * 24
+                ]
+              }, 365
+            ]
+          }
+        }
+      }
+    ];
+
+    // Get all objects that match the query
+    // aggregate, because complex query/pipeline
+    records = await artCol.aggregate(query).toArray();
+
+    records.forEach((record) => {
+      record._id = record._id.toString(); // convert ObjectId to String
+    });
+
+
+  } catch (error) {
+    console.log(error);
+    // TODO: errorhandling
+  }
+  return records;
+
+
+}
+
+////////// GET TOP RECORDS ////////////////////////////////////////////////////////////////////////
+async function getTopRecords() {
+  let records = [];
+  try {
+    const artCol = db.collection("records");
+
+
+    const query = {rating: {$eq:"5"}};
+
+    // Get all objects that match the query
+    // find, because simple query
+    records = await artCol.find(query).toArray();
 
     records.forEach((record) => {
       record._id = record._id.toString(); // convert ObjectId to String
@@ -314,6 +391,8 @@ async function deleteMovie(id) {
 export default {
   getRecords,
   getRecord,
+  getOldRecords,
+  getTopRecords,
   createRecord,
   updateRecord,
 
