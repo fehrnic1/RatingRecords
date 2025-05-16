@@ -11,14 +11,6 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
 <style>
     .record-card {
         border: 1px solid #555;

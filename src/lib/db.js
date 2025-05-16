@@ -10,7 +10,7 @@ const db = client.db("RatingRecords"); // select database
 // RECORDS /////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-////////// GET ALL RECORDS ////////////////////////////////////////////////////////////////////////
+// GET ALL RECORDS /////////////////////////////////////////////////////////////////////////////////////
 async function getRecords() {
   let records = [];
 
@@ -35,7 +35,7 @@ async function getRecords() {
   return records;
 }
 
-////////// GET RECORD BY ID ////////////////////////////////////////////////////////////////////////
+// GET RECORD BY ID ////////////////////////////////////////////////////////////////////////////////////
 async function getRecord(id) {
   let record = null;
   try {
@@ -56,18 +56,12 @@ async function getRecord(id) {
   return record;
 }
 
-////////// GET RECORDS BY ARTIST ////////////////////////////////////////////////////////////////////////
+// GET RECORDS BY ARTIST ///////////////////////////////////////////////////////////////////////////////
 async function getRecordsByArtist(id) {
   let records = [];
 
-
-
   try {
     const artCol = db.collection("artists");
-
-    // You can specify a query/filter here
-    // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
-
 
     const query = [
       {
@@ -99,36 +93,28 @@ async function getRecordsByArtist(id) {
       }
     ];
 
-    // Get all objects that match the query
     // aggregate, because complex query/pipeline
     records = await artCol.aggregate(query).toArray();
 
     records.forEach((record) => {
-      record._id = record._id.toString(); // convert ObjectId to String
+      record._id = record._id.toString();
     });
-
 
   } catch (error) {
     console.log(error);
     // TODO: errorhandling
   }
-  return records;
 
+  return records;
 
 }
 
-////////// GET RECORDS BY Label ////////////////////////////////////////////////////////////////////////
+// GET RECORDS BY Label ////////////////////////////////////////////////////////////////////////////////
 async function getRecordsByLabel(id) {
   let records = [];
-
-
-
+ 
   try {
     const artCol = db.collection("labels");
-
-    // You can specify a query/filter here
-    // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
-
 
     const query = [
       {
@@ -160,30 +146,28 @@ async function getRecordsByLabel(id) {
       }
     ];
 
-    // Get all objects that match the query
     // aggregate, because complex query/pipeline
     records = await artCol.aggregate(query).toArray();
 
     records.forEach((record) => {
-      record._id = record._id.toString(); // convert ObjectId to String
+      record._id = record._id.toString();
     });
-
 
   } catch (error) {
     console.log(error);
     // TODO: errorhandling
   }
-  return records;
 
+  return records;
 
 }
 
-////////// GET OLD RECORDS ////////////////////////////////////////////////////////////////////////
+// GET OLD RECORDS /////////////////////////////////////////////////////////////////////////////////////
 async function getOldRecords() {
   let records = [];
+
   try {
     const artCol = db.collection("records");
-
 
     const query = [
       {
@@ -211,34 +195,31 @@ async function getOldRecords() {
       }
     ];
 
-    // Get all objects that match the query
     // aggregate, because complex query/pipeline
     records = await artCol.aggregate(query).toArray();
 
     records.forEach((record) => {
-      record._id = record._id.toString(); // convert ObjectId to String
+      record._id = record._id.toString();
     });
-
 
   } catch (error) {
     console.log(error);
     // TODO: errorhandling
   }
-  return records;
 
+  return records;
 
 }
 
-////////// GET TOP RECORDS ////////////////////////////////////////////////////////////////////////
+// GET TOP RECORDS ////////////////////////////////////////////////////////////////////////////////////
 async function getTopRecords() {
   let records = [];
+
   try {
     const artCol = db.collection("records");
 
+    const query = { rating: { $eq: "5" } };
 
-    const query = {rating: {$eq:"5"}};
-
-    // Get all objects that match the query
     // find, because simple query
     records = await artCol.find(query).toArray();
 
@@ -246,17 +227,16 @@ async function getTopRecords() {
       record._id = record._id.toString(); // convert ObjectId to String
     });
 
-
   } catch (error) {
     console.log(error);
     // TODO: errorhandling
   }
-  return records;
 
+  return records;
 
 }
 
-////////// CREATE RECORD ////////////////////////////////////////////////////////////////////////
+// CREATE RECORD //////////////////////////////////////////////////////////////////////////////////////
 async function createRecord(record) {
   try {
     const collection = db.collection("records");
@@ -289,28 +269,24 @@ async function updateRecord(record) {
     // TODO: errorhandling
     console.log(error.message);
   }
+
   return null;
+
 }
-
-
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ARTISTS /////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-////////// GET ALL ARTISTSS ////////////////////////////////////////////////////////////////////////
+// GET ALL ARTISTS ////////////////////////////////////////////////////////////////////////////////////
 async function getArtists() {
   let artists = [];
 
   try {
     const collection = db.collection("artists");
-
-    // You can specify a query/filter here
-    // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
     const query = {};
 
-    // Get all objects that match the query
     artists = await collection.find(query).toArray();
     artists.forEach((artist) => {
       artist._id = artist._id.toString(); // convert ObjectId to String
@@ -323,9 +299,10 @@ async function getArtists() {
   return artists;
 }
 
-////////// GET ARTIST BY ID ////////////////////////////////////////////////////////////////////////
+// GET ARTIST BY ID ///////////////////////////////////////////////////////////////////////////////////
 async function getArtist(id) {
   let artist = null;
+
   try {
     const collection = db.collection("artists");
     const query = { _id: new ObjectId(id) }; // filter by id
@@ -344,7 +321,7 @@ async function getArtist(id) {
   return artist;
 }
 
-////////// CREATE ARTIST ////////////////////////////////////////////////////////////////////////
+// CREATE ARTIST ///////////////////////////////////////////////////////////////////////////////////////
 async function createArtist(artist) {
   try {
     const collection = db.collection("artists");
@@ -357,19 +334,18 @@ async function createArtist(artist) {
   return null;
 }
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 // LABELS /////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-////////// GET ALL LABELS ////////////////////////////////////////////////////////////////////////
+// GET ALL LABELS /////////////////////////////////////////////////////////////////////////////////////
 async function getLabels() {
   let labels = [];
 
   try {
     const collection = db.collection("labels");
 
-    // You can specify a query/filter here
-    // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
     const query = {};
 
     // Get all objects that match the query
@@ -385,9 +361,10 @@ async function getLabels() {
   return labels;
 }
 
-////////// GET LABEL BY ID ////////////////////////////////////////////////////////////////////////
+// GET LABEL BY ID /////////////////////////////////////////////////////////////////////////////////////
 async function getLabel(id) {
   let label = null;
+
   try {
     const collection = db.collection("labels");
     const query = { _id: new ObjectId(id) }; // filter by id
@@ -406,7 +383,7 @@ async function getLabel(id) {
   return label;
 }
 
-////////// CREATE LABEL ////////////////////////////////////////////////////////////////////////
+// CREATE LABEL ////////////////////////////////////////////////////////////////////////////////////////
 async function createLabel(label) {
   try {
     const collection = db.collection("labels");
@@ -419,14 +396,12 @@ async function createLabel(label) {
   return null;
 }
 
-////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
-
+///////////////////////////////////////////////////////////////////////////////
 // delete movie by id
 // returns: id of the deleted movie or null, if movie could not be deleted
-async function deleteMovie(id) {
+async function deleteRecord(id) {
   try {
-    const collection = db.collection("movies");
+    const collection = db.collection("records");
     const query = { _id: new ObjectId(id) }; // filter by id
     const result = await collection.deleteOne(query);
 
@@ -446,9 +421,9 @@ async function deleteMovie(id) {
 
 
 
-//////////////////////////////////////////
-// EXPORT FUNCTIONS
-//////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+// EXPORTING FUNCTIONS ///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 export default {
   getRecords,
   getRecord,
@@ -456,6 +431,7 @@ export default {
   getTopRecords,
   createRecord,
   updateRecord,
+  deleteRecord,
 
   getArtists,
   getArtist,
@@ -467,5 +443,4 @@ export default {
   createLabel,
   getRecordsByLabel,
 
-  deleteMovie,
 };

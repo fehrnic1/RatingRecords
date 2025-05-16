@@ -3,16 +3,13 @@
 </script>
 
 <div class="record-card">
-    <div><img class="img-fluid" src= {record.cover} alt="" /></div>
+    <div><img class="img-fluid" src={record.cover} alt="" /></div>
     <div class="details">
-        
         <div class="title">
-            <a href={"/records/"+record._id}>{record.title}</a>
+            <a href={"/records/" + record._id}>{record.title}</a>
         </div>
-
         <div>Artist: {record.artist}</div>
         <div>Label: {record.label}</div>
-
     </div>
 </div>
 
