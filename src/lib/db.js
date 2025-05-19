@@ -17,8 +17,6 @@ async function getRecords() {
   try {
     const recCol = db.collection("records");
 
-    // You can specify a query/filter here
-    // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
     const query = {};
 
     // Get all objects that match the query
@@ -253,7 +251,7 @@ async function createRecord(record) {
 async function updateRecord(record) {
   try {
     let id = record._id;
-    delete record._id; // delete the _id from the object, because the _id cannot be updated
+    delete record._id; // delete the _id from the object, because the _id cannot be updated (?)
     const collection = db.collection("records");
     const query = { _id: new ObjectId(id) }; // filter by id
     const result = await collection.updateOne(query, { $set: record });

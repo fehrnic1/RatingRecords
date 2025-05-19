@@ -45,58 +45,20 @@
 
     <div class="mb-3">
         <label for="" class="form-label">Year</label>
-        <input name="year" class="form-control" type="number" />
+        <input name="year" class="form-control" type="number"/>
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">Genre</label>
-        <input name="genre" class="form-control" type="text" />
+        <input name="genre" class="form-control" type="text"/>
     </div>
 
-    
     <div class="mb-3">
         <label for="" class="form-label">Last Listen</label>
-        <input name="lastlisten" class="form-control" type="date" />
+        <input name="lastlisten" class="form-control" type="date"/>
     </div>
 
     <div class="mb-3">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
         <label for="" class="form-label">Rating</label>
         <input name="rating" class="form-control" type="text" />
     </div>

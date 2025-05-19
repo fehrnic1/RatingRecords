@@ -3,18 +3,45 @@ body {
     color: white;
 }
 
-.container{
+.container {
     /* margin-left: 60px; */
     margin-top: 10px
 }
 
 
-.addButton{
+.addButton {
     margin-top: 10px;
     text-align: right;
 }
 
-.detailCard{
-     margin-top: 20px;
+.detailCard {
+    margin-top: 20px;
 }
 
+
+
+
+/* STAR RATING */
+.star-rating {
+    direction: rtl;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    color: #ddd;
+    font-size: 24px;
+    padding: 0px 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.star-rating label:hover,
+.star-rating label:hover~label,
+.star-rating input:checked~label {
+    color: #ffc107;
+}

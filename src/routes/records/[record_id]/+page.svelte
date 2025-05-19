@@ -3,7 +3,7 @@
     let record = data.record;
 </script>
 
-<!-- ///////////////////////////  CONTAINER MID  ///////////////////////////////////// -->
+<!-- ///////////////////////////  CONTAINER BODY  ///////////////////////////////////// -->
 <div class="container detailCard">
     <div class="row">
         <div class="col md-4">
@@ -26,9 +26,7 @@
     </div>
 </div>
 
-<!-- ///////////////////////////  CONTAINER BTM  ///////////////////////////////////// -->
-
-<!-- Details-Update -->
+<!-- ///////////////////////////  DATA UPDATE  ///////////////////////////////////// -->
 
 <form method="POST" action="?/update">
     <!-- non-updateable Data -->
@@ -42,12 +40,11 @@
     <input name="genre" type="hidden" value={record.genre} />
 
     <!-- updateable Data -->
-
     <div class="container">
         <div class="row">
             <div class="col">
                 <div class="mb-3">
-                    <label class="form-lable" for="">Last Listen:</label>
+                    <label class="form-label" for="">Last Listen:</label>
                     <input
                         value={record.lastlisten}
                         name="lastlisten"
@@ -55,121 +52,86 @@
                         type="date"
                     />
                 </div>
-                <div class="mb-3">
-                    <label class="form-lable" for="">Highlights</label>
-                    <input
-                        value={record.highlights}
-                        name="highlights"
-                        class="form-control"
-                        type="text"
-                    />
-                </div>
             </div>
 
 
-            
             <div class="col">
-                <link
-                    rel="stylesheet"
-                    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-                />
+                <label class="form-label" for="">Rating</label><br />
+                <div class="star-rating">
+                    <input
+                        type="radio"
+                        id="star5"
+                        name="rating"
+                        value="5"
+                        checked={record.rating == 5}
+                    />
+                    <label for="star5" class="bi bi-star-fill"></label>
+                    <input
+                        type="radio"
+                        id="star4"
+                        name="rating"
+                        value="4"
+                        checked={record.rating == 4}
+                    />
+                    <label for="star4" class="bi bi-star-fill"></label>
+                    <input
+                        type="radio"
+                        id="star3"
+                        name="rating"
+                        value="3"
+                        checked={record.rating == 3}
+                    />
+                    <label for="star3" class="bi bi-star-fill"></label>
+                    <input
+                        type="radio"
+                        id="star2"
+                        name="rating"
+                        value="2"
+                        checked={record.rating == 2}
+                    />
+                    <label for="star2" class="bi bi-star-fill"></label>
+                    <input
+                        type="radio"
+                        id="star1"
+                        name="rating"
+                        value="1"
+                        checked={record.rating == 1}
+                    />
+                    <label for="star1" class="bi bi-star-fill"></label>
+                </div>
+            </div>
 
-                <div class="mb-3">
-                    <label>Rating</label><br />
-                    <div class="star-rating">
-                        <input
-                            type="radio"
-                            id="star5"
-                            name="rating"
-                            value="5"
-                            checked={record.rating == 5}
-                        />
-                        <label for="star5" class="bi bi-star-fill"></label>
 
-                        <input
-                            type="radio"
-                            id="star4"
-                            name="rating"
-                            value="4"
-                            checked={record.rating == 4}
-                        />
-                        <label for="star4" class="bi bi-star-fill"></label>
+            <div class="row">
 
+                <div class="col">
+                    <div class="mb-3">
+                        <label class="form-label" for="">Highlights</label>
                         <input
-                            type="radio"
-                            id="star3"
-                            name="rating"
-                            value="3"
-                            checked={record.rating == 3}
+                            value={record.highlights}
+                            name="highlights"
+                            class="form-control"
+                            type="text"
                         />
-                        <label for="star3" class="bi bi-star-fill"></label>
-
-                        <input
-                            type="radio"
-                            id="star2"
-                            name="rating"
-                            value="2"
-                            checked={record.rating == 2}
-                        />
-                        <label for="star2" class="bi bi-star-fill"></label>
-
-                        <input
-                            type="radio"
-                            id="star1"
-                            name="rating"
-                            value={"1"}
-                            checked={record.rating == 1}
-                        />
-                        <label for="star1" class="bi bi-star-fill"></label>
                     </div>
                 </div>
 
-                <style>
-                    .star-rating {
-                        direction: rtl;
-                        display: inline-block;
-                        cursor: pointer;
-                    }
-
-                    .star-rating input {
-                        display: none;
-                    }
-
-                    .star-rating label {
-                        color: #ddd;
-                        font-size: 24px;
-                        padding: 0px 2px;
-                        cursor: pointer;
-                        transition: all 0.2s ease;
-                    }
-
-                    .star-rating label:hover,
-                    .star-rating label:hover ~ label,
-                    .star-rating input:checked ~ label {
-                        color: #ffc107;
-                    }
-                </style>
-
-
-
-
-
-
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <button class="btn btn-primary mt-3">Update</button>
-                    </div>
-                    <div class="col-6 mt-2 text-start">
-                        {#if form?.success}
-                            <p>{record.title} <br>has been updated!</p>
-                        {/if}
+                <div class="col">
+                    <div class="row mt-3">
+                        <div class="col">
+                            <button class="btn btn-primary mt-3">Update</button>
+                        </div>
+                        <div class="col mt-4 text-end">
+                            {#if form?.success}
+                                <p>{record.title} has been updated!</p>
+                            {/if}
+                        </div>
                     </div>
                 </div>
-
-
 
             </div>
+
+
         </div>
     </div>
 </form>
