@@ -3,9 +3,16 @@
   let { data } = $props();
   let oldRecords = data.oldRecords;
   let topRecords = data.topRecords;
+  let slideCounter = -1;
 </script>
 
+<div class="container">
 <h1>RatingRecords</h1>
+<h5>Register, categorize and rate your vinyl</h5>
+</div>
+
+<br>
+
 
 <div class="container">
   <div class="row">
@@ -14,14 +21,16 @@
     <div class="col-xl-6">
       <h2>Not listened in a while</h2>
       <div
-        id="carouselExampleCaptions"
+        id="longNoListen"
         class="carousel slide"
         data-bs-ride="carousel"
       >
-        <div class="carousel-indicators">
+
+
+<!--         <div class="carousel-indicators">
           <button
             type="button"
-            data-bs-target="#carouselExampleCaptions"
+            data-bs-target="#longNoListen"
             data-bs-slide-to="0"
             class="active"
             aria-current="true"
@@ -29,25 +38,27 @@
           ></button>
           <button
             type="button"
-            data-bs-target="#carouselExampleCaptions"
+            data-bs-target="#longNoListen"
             data-bs-slide-to="1"
             aria-label="Slide 2"
           ></button>
           <button
             type="button"
-            data-bs-target="#carouselExampleCaptions"
+            data-bs-target="#longNoListen"
             data-bs-slide-to="2"
             aria-label="Slide 3"
           ></button>
         </div>
+ -->
 
         <div class="carousel-inner">
           {#each oldRecords as record}
             <div class="carousel-item active">
               <img src={record.cover} class="d-block w-100" alt="" />
               <div class="carousel-caption d-none d-md-block">
-                <h5>{record.artist}</h5>
-                <p>Highlights: {record.highlights}</p>
+                <h2>{record.title}</h2>
+                <h4>{record.artist}</h4>
+                <h5>Highlights: {record.highlights}</h5>
               </div>
             </div>
           {/each}
@@ -56,7 +67,7 @@
         <button
           class="carousel-control-prev"
           type="button"
-          data-bs-target="#carouselExampleCaptions"
+          data-bs-target="#longNoListen"
           data-bs-slide="prev"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -65,7 +76,7 @@
         <button
           class="carousel-control-next"
           type="button"
-          data-bs-target="#carouselExampleCaptions"
+          data-bs-target="#longNoListen"
           data-bs-slide="next"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -78,14 +89,14 @@
 <div class="col-xl-6">
       <h2>Best rated</h2>
       <div
-        id="carouselExampleCaptions"
+        id="BestRated"
         class="carousel slide"
         data-bs-ride="carousel"
       >
-        <div class="carousel-indicators">
+<!--         <div class="carousel-indicators">
           <button
             type="button"
-            data-bs-target="#carouselExampleCaptions"
+            data-bs-target="#BestRated"
             data-bs-slide-to="0"
             class="active"
             aria-current="true"
@@ -93,25 +104,26 @@
           ></button>
           <button
             type="button"
-            data-bs-target="#carouselExampleCaptions"
+            data-bs-target="#BestRated"
             data-bs-slide-to="1"
             aria-label="Slide 2"
           ></button>
           <button
             type="button"
-            data-bs-target="#carouselExampleCaptions"
+            data-bs-target="#BestRated"
             data-bs-slide-to="2"
             aria-label="Slide 3"
           ></button>
-        </div>
+        </div> -->
 
         <div class="carousel-inner">
           {#each topRecords as record}
             <div class="carousel-item active">
               <img src={record.cover} class="d-block w-100" alt="" />
               <div class="carousel-caption d-none d-md-block">
-                <h5>{record.artist}</h5>
-                <p>Highlights: {record.highlights}</p>
+                <h2>{record.title}</h2>
+                <h4>{record.artist}</h4>
+                <h5>Highlights: {record.highlights}</h5>
               </div>
             </div>
           {/each}
@@ -120,21 +132,23 @@
         <button
           class="carousel-control-prev"
           type="button"
-          data-bs-target="#carouselExampleCaptions"
+          data-bs-target="#BestRated"
           data-bs-slide="prev"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
+
         <button
           class="carousel-control-next"
           type="button"
-          data-bs-target="#carouselExampleCaptions"
+          data-bs-target="#BestRated"
           data-bs-slide="next"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
+        
       </div>
     </div>
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->

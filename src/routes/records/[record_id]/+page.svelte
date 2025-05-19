@@ -73,7 +73,7 @@
                 />
 
                 <div class="mb-3">
-                    <label class="form-label">Rating</label><br />
+                    <label>Rating</label><br />
                     <div class="star-rating">
                         <input
                             type="radio"
