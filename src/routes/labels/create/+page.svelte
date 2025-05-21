@@ -2,37 +2,79 @@
     let { form } = $props();
 </script>
 
-<a class="btn btn-danger" role="button" href="/labels">Back</a>
-<h1>Add a label</h1>
-<form method="POST" action="?/create">
-
-    <div class="mb-3">
-        <label for="" class="form-label">Name</label>
-        <input name="name" class="form-control" type="text" />
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Add a label</h1>
+        </div>
+        <div class="col cornerButton">
+            <a class="btn btn-danger" role="button" href="/labels">Back</a>
+        </div>
     </div>
+</div>
 
-    <div class="mb-3">
-        <label for="" class="form-label">Origin City</label>
-        <input name="originCity" class="form-control" type="text" />
-    </div>
+<div class="container">
+    <form method="POST" action="?/create">
+        <div class="mb-3">
+            <input
+                value="/default_label.jpg"
+                type="hidden"
+                name="logo"
+                class="form-control"
+            />
+        </div>
 
-    <div class="mb-3">
-        <label for="" class="form-label">Origin Country</label>
-        <input name="originCountry" class="form-control" type="text" />
-    </div>
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="" class="form-label">Name</label>
+                    <input name="name" class="form-control" type="text" />
+                </div>
+            </div>
 
-    <div class="mb-3">
-        <label for="" class="form-label">Band Camp Link</label>
-        <input name="bandCampLink" class="form-control" type="text" />
-    </div>
-    
-    <div class="mb-3">
-        <input name="logo" class="form-control" type="hidden" value="/default_label.jpg" />
-    </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="" class="form-label">Band Camp Link</label>
+                    <input
+                        name="bandCampLink"
+                        class="form-control"
+                        type="text"
+                    />
+                </div>
+            </div>
+        </div>
 
-    <button type="submit" class="btn btn-primary"> Add Label </button>
-</form>
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="" class="form-label">Origin City</label>
+                    <input name="originCity" class="form-control" type="text" />
+                </div>
+            </div>
 
-{#if form?.success}
-    <p>Label created</p>
-{/if}
+            <div class="col">
+                <div class="mb-3">
+                    <label for="" class="form-label">Origin Country</label>
+                    <input
+                        name="originCountry"
+                        class="form-control"
+                        type="text"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">
+                    Add a Label
+                </button>
+            </div>
+            <div class="col-md-8 mt-2 text-start">
+                {#if form?.success}
+                    <p>Label created</p>
+                {/if}
+            </div>
+        </div>
+    </form>
+</div>
