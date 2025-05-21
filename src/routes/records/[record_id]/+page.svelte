@@ -54,7 +54,6 @@
                 </div>
             </div>
 
-
             <div class="col">
                 <label class="form-label" for="">Rating</label><br />
                 <div class="star-rating">
@@ -100,38 +99,33 @@
                     <label for="star1" class="bi bi-star-fill"></label>
                 </div>
             </div>
+        </div>
 
-
-            <div class="row">
-
-                <div class="col">
-                    <div class="mb-3">
-                        <label class="form-label" for="">Highlights</label>
-                        <input
-                            value={record.highlights}
-                            name="highlights"
-                            class="form-control"
-                            type="text"
-                        />
-                    </div>
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label class="form-label" for="">Highlights</label>
+                    <input
+                        value={record.highlights}
+                        name="highlights"
+                        class="form-control"
+                        type="text"
+                    />
                 </div>
-
-                <div class="col">
-                    <div class="row mt-3">
-                        <div class="col">
-                            <button class="btn btn-primary mt-3">Update</button>
-                        </div>
-                        <div class="col mt-4 text-end">
-                            {#if form?.success}
-                                <p>{record.title} has been updated!</p>
-                            {/if}
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
-
+            <div class="col">
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <button class="btn btn-primary mt-3">Update</button>
+                    </div>
+                    <div class="col-md-9 mt-4 text-start">
+                        {#if form?.success}
+                            <p>{record.title} has been updated!</p>
+                        {/if}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </form>
