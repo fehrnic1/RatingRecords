@@ -26,35 +26,10 @@
         data-bs-ride="carousel"
       >
 
-
-<!--         <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#longNoListen"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#longNoListen"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#longNoListen"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
- -->
-
         <div class="carousel-inner">
-          {#each oldRecords as record}
+          {#each topRecords as record}
             <div class="carousel-item active">
-              <img src={record.cover} class="d-block w-100" alt="" />
+              <img src={record.cover} class="d-block w-100" alt=""/>
               <div class="carousel-caption d-none d-md-block">
                 <h2>{record.title}</h2>
                 <h4>{record.artist}</h4>
@@ -93,28 +68,6 @@
         class="carousel slide"
         data-bs-ride="carousel"
       >
-<!--         <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#BestRated"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#BestRated"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#BestRated"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div> -->
 
         <div class="carousel-inner">
           {#each topRecords as record}
