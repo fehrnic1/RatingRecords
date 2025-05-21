@@ -8,8 +8,7 @@
         <div class="title">
             <a href={"/records/" + record._id}>{record.title}</a>
         </div>
-        <div>Artist: {record.artist}</div>
-        <div>Label: {record.label}</div>
+        <div>by {record.artist}</div>
     </div>
 </div>
 
