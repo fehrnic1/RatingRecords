@@ -3,7 +3,7 @@
 </script>
 
 <div class="record-card">
-    <div><img class="img-fluid" src={label.logo} alt="" /></div>
+    <div class="square-container"><img class="img-fluid" src={label.logo} alt="" /></div>
     <div class="details">
         <div class="title">
             <a href={"/labels/" + label._id}>{label.name}</a>

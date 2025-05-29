@@ -25,4 +25,9 @@ export const actions = {
         await db.createArtist(artist);
         return { success: true }
     }
+
+
+
+
+    
 }

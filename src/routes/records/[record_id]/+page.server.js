@@ -1,4 +1,5 @@
 import db from "$lib/db.js"
+import { redirect } from "@sveltejs/kit";
 
 export async function load( {params} ){
     let record = await db.getRecord(params.record_id);
@@ -27,9 +28,12 @@ export const actions ={
 
         await db.updateRecord(record);
         return{success: true}
+    },
+
+/*      Importing redirect, and throw of redirect needed in Svelte */
+        delete: async ({request}) => {
+        const data = await request.formData();
+        await db.deleteRecord(data.get("id"));
+        throw redirect(303, "/records");
     }
-
-
-
-    
 }

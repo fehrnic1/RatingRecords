@@ -21,6 +21,14 @@ body {
 
 
 
+
+
+/* CUSTOM LINKS */
+
+
+
+
+
 /* STAR RATING */
 .star-rating {
     direction: rtl;
@@ -45,3 +53,15 @@ body {
 .star-rating input:checked~label {
     color: #ffc107;
 }
+
+/* IMG AUTO SQUARE */
+
+  .square-container {
+    /* width: 213px;   */     
+    height: 200px;        
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }

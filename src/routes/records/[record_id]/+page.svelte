@@ -19,9 +19,16 @@
             <div>Runtime: {record.runtime} minutes</div>
             <div>Year: {record.year}</div>
             <div>Genre: {record.genre}</div>
+            <br />
+
+            <form method="POST" action="?/delete">
+                <input type="hidden" name="id" value={record._id} />
+                <button type="submit" class="btn btn-danger">Delete Record</button>
+            </form>
+
         </div>
         <div class="col addButton">
-            <a class="btn btn-danger" role="button" href="/records">Back</a>
+            <a class="btn btn-primary" role="button" href="/records">Back</a>
         </div>
     </div>
 </div>

@@ -27,7 +27,7 @@
       >
 
         <div class="carousel-inner">
-          {#each topRecords as record}
+          {#each oldRecords as record}
             <div class="carousel-item active">
               <img src={record.cover} class="d-block w-100" alt=""/>
               <div class="carousel-caption d-none d-md-block">
