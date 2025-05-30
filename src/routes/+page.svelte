@@ -31,9 +31,8 @@
             <div class="carousel-item active">
               <img src={record.cover} class="d-block w-100" alt=""/>
               <div class="carousel-caption d-none d-md-block">
-                <h2>{record.title}</h2>
+                <h2><a class="custom-link" href={"/records/" + record._id}>{record.title}</a></h2>
                 <h4>{record.artist}</h4>
-                <h5>Highlights: {record.highlights}</h5>
               </div>
             </div>
           {/each}
@@ -74,9 +73,8 @@
             <div class="carousel-item active">
               <img src={record.cover} class="d-block w-100" alt="" />
               <div class="carousel-caption d-none d-md-block">
-                <h2>{record.title}</h2>
+                <h2><a class="custom-link" href={"/records/" + record._id}>{record.title}</a></h2>
                 <h4>{record.artist}</h4>
-                <h5>Highlights: {record.highlights}</h5>
               </div>
             </div>
           {/each}

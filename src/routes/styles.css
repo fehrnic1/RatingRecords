@@ -27,12 +27,11 @@ body {
 
 /* CUSTOM LINKS */
 .custom-link{
-    color: green;
+    color: crimson;
     text-decoration: none;
     font: bold
 }
 .custom-link:hover{
-    color: crimson;
     text-decoration: underline;
     font: bold
 }
