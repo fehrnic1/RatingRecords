@@ -415,31 +415,6 @@ async function createLabel(label) {
   return null;
 }
 
-///////////////////////////////////////////////////////////////////////////////
-// delete movie by id
-// returns: id of the deleted movie or null, if movie could not be deleted
-async function deleteRecord(id) {
-  try {
-    const collection = db.collection("records");
-    const query = { _id: new ObjectId(id) }; // filter by id
-    const result = await collection.deleteOne(query);
-
-    if (result.deletedCount === 0) {
-      console.log("No movie with id " + id);
-    } else {
-      console.log("Movie with id " + id + " has been successfully deleted.");
-      return id;
-    }
-  } catch (error) {
-    // TODO: errorhandling
-    console.log(error.message);
-  }
-  return null;
-}
-
-
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 // EXPORTING FUNCTIONS ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
