@@ -20,21 +20,57 @@ body {
 
 
 
-.caroussel-info{
+.caroussel-info {
     color: red;
 }
 
 
-/* CUSTOM LINKS */
-.custom-link{
-    color: crimson;
-    text-decoration: none;
-    font: bold
+
+
+
+
+/* .navbar-style{
+    background-color: #381111;
+    color: gainsboro;
+    border: 3px solid gainsboro;
 }
-.custom-link:hover{
+ */
+
+/* CARDS */
+.entity-card {
+    border: 3px solid gainsboro;
+    height: 100%;
+    background-color: #381111;
+    color: gainsboro;
+}
+.details {
+    padding: 10px;
+}
+
+/* IMG AUTO SQUARE */
+.square-container {
+    /* width: 213px;   */
+    height: 200px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* CUSTOM LINKS */
+.custom-link {
+    color: gainsboro;
+    text-decoration: none;
+    font-weight: bold
+}
+
+.custom-link:hover {
+    color: crimson;
     text-decoration: underline;
     font: bold
 }
+
 
 /* STAR RATING */
 .star-rating {
@@ -60,15 +96,3 @@ body {
 .star-rating input:checked~label {
     color: #ffc107;
 }
-
-/* IMG AUTO SQUARE */
-
-  .square-container {
-    /* width: 213px;   */     
-    height: 200px;        
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
