@@ -6,7 +6,7 @@
     <div><img class="img-fluid" src={record.cover} alt="" /></div>
     <div class="details">
         <div class="title">
-            <a href={"/records/" + record._id}>{record.title}</a>
+            <a class="custom-link" href={"/records/" + record._id}>{record.title}</a>
         </div>
         <div>by {record.artist}</div>
     </div>

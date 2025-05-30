@@ -20,14 +20,22 @@ body {
 
 
 
-
+.caroussel-info{
+    color: red;
+}
 
 
 /* CUSTOM LINKS */
-
-
-
-
+.custom-link{
+    color: green;
+    text-decoration: none;
+    font: bold
+}
+.custom-link:hover{
+    color: crimson;
+    text-decoration: underline;
+    font: bold
+}
 
 /* STAR RATING */
 .star-rating {
