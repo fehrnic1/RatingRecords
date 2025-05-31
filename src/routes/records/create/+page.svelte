@@ -125,7 +125,7 @@
                 <div class="row mt-4">
                     <div class="col-md-4">
                         <button type="submit" class="btn btn-primary">
-                            Add a Record
+                            Add Record
                         </button>
                     </div>
                     <div class="col-md-8 mt-2 text-start">
