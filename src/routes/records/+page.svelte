@@ -14,11 +14,13 @@
 
 </script>
 
-<div class="container topBar">
+<div class="container">
   <div class="row">
     <div class="col">
       <h1>RECORDS</h1>
     </div>
+
+    
     <div class="col cornerButton">
       <a class="btn btn-primary" role="button" href="/records/create"
         >Add a Record</a
@@ -26,6 +28,7 @@
     </div>
   </div>
 
+  <div class="container">
   <div class="row">
     <div class="form-check form-switch">
       <input
@@ -38,6 +41,7 @@
         >Show Your Stack</label
       >
     </div>
+  </div>
   </div>
 
 
