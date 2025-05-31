@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>Add a record</h1>
+            <h1>Add a Record</h1>
         </div>
         <div class="col cornerButton">
             <a class="btn btn-danger" role="button" href="/records">Back</a>

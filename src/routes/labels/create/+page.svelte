@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>Add a label</h1>
+            <h1>Add a Label</h1>
         </div>
         <div class="col cornerButton">
             <a class="btn btn-danger" role="button" href="/labels">Back</a>

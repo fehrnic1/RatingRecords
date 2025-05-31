@@ -3,7 +3,6 @@
   let { data } = $props();
   let oldRecords = data.oldRecords;
   let topRecords = data.topRecords;
-  let slideCounter = -1;
 </script>
 
 <div class="container">
@@ -11,7 +10,7 @@
 <h5>Register, categorize and rate your vinyl</h5>
 </div>
 
-<br>
+<br />
 
 
 <div class="container">
@@ -19,7 +18,7 @@
 
 <!-- //////////////////////// CAROUSEL LONG TIME NO LISTEN ////////////////////////////////// -->
     <div class="col-xl-6">
-      <h2>Not listened in a while</h2>
+      <h2>Not Listened In a While</h2>
       <div
         id="longNoListen"
         class="carousel slide"
@@ -60,7 +59,7 @@
 
 <!-- ////////////////////////////// BEST RATED ////////////////////////////////////////////// -->
 <div class="col-xl-6">
-      <h2>Best rated</h2>
+      <h2>Best Rated</h2>
       <div
         id="BestRated"
         class="carousel slide"
