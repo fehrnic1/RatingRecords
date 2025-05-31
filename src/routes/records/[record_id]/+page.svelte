@@ -6,13 +6,13 @@
 <!-- ///////////////////////////  CONTAINER BODY  ///////////////////////////////////// -->
 <div class="container detailCard">
     <div class="row">
-        <div class="col md-4">
+        <div class="col">
             <div>
                 <img src={record.cover} alt="" height="300" />
             </div>
         </div>
 
-        <div class="col md-4">
+        <div class="col">
             <h1>{record.title}</h1>
             <div>Artist: {record.artist}</div>
             <div>Label: {record.label}</div>
@@ -27,8 +27,8 @@
             </form>
 
         </div>
-        <div class="col addButton">
-            <a class="btn btn-primary" role="button" href="/records">Back</a>
+        <div class="col cornerButton">
+            <a class="btn btn-danger" role="button" href="/records">Back</a>
         </div>
     </div>
 </div>

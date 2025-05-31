@@ -23,7 +23,11 @@
             <div class="col-6">
                 <div class="details">
                     {#if !record.stack}
-                        <form method="POST" action="?/addToStack" use:enhance>
+                        <form 
+                        method="POST"
+                        action="?/addToStack"
+                        use:enhance
+                        >
                             <input
                                 name="recordId"
                                 type="hidden"
