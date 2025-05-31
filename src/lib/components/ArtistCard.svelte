@@ -9,7 +9,7 @@
         >
     </div>
 
-    <div class="details">
+    <div class="cardContent">
         <div class="title">
             <a class="custom-link" href={"/artists/" + artist._id}
                 >{artist.name}</a

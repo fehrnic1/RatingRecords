@@ -9,9 +9,9 @@
             <img class="img-fluid" src={record.cover} alt="" />
         </a>
     </div>
-    <div class="details">
+    <div class="cardContent">
         <div class="row">
-            <div class="col-6 mt-1">
+            <div class="col-6">
                 <div class="title">
                     <a class="custom-link" href={"/records/" + record._id}
                         >{record.title}</a
@@ -21,7 +21,7 @@
             </div>
 
             <div class="col-6">
-                <div class="details">
+                <div>
                     {#if !record.stack}
                         <form 
                         method="POST"
