@@ -29,10 +29,9 @@
         <div class="carousel-inner">
           {#each oldRecords as record}
             <div class="carousel-item active">
-              <img src={record.cover} class="d-block w-100" alt=""/>
+              <a class="custom-link" href={"/records/" + record._id}>
+              <img src={record.cover} class="d-block w-100" alt="" /></a>
               <div class="carousel-caption d-none d-md-block">
-                <h2><a class="custom-link" href={"/records/" + record._id}>{record.title}</a></h2>
-                <h4>{record.artist}</h4>
               </div>
             </div>
           {/each}
@@ -71,10 +70,9 @@
         <div class="carousel-inner">
           {#each topRecords as record}
             <div class="carousel-item active">
-              <img src={record.cover} class="d-block w-100" alt="" />
+              <a class="custom-link" href={"/records/" + record._id}>
+              <img src={record.cover} class="d-block w-100" alt="" /></a>
               <div class="carousel-caption d-none d-md-block">
-                <h2><a class="custom-link" href={"/records/" + record._id}>{record.title}</a></h2>
-                <h4>{record.artist}</h4>
               </div>
             </div>
           {/each}

@@ -17,7 +17,7 @@
                         >{record.title}</a
                     >
                 </div>
-                <div>by {record.artist}</div>
+                <div>{record.artist}</div>
             </div>
 
             <div class="col-6">
