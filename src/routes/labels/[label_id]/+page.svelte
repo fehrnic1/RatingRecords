@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="col cornerButton">
-            <a class="btn btn-danger" role="button" href="/artists">Back</a>
+            <a class="btn btn-danger" role="button" href="/labels">Back</a>
         </div>
     </div>
 </div>
