@@ -7,9 +7,4 @@ export async function load() {
         oldRecords: oldRecords,
         topRecords: topRecords
     }
-
-
-
-
-
 }

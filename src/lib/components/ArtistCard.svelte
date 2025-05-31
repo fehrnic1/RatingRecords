@@ -5,8 +5,8 @@
 <div class="entity-card">
     <div class="square-container">
         <a class="custom-link" href={"/artists/" + artist._id}>
-            <img class="img-fluid" src={artist.logo} alt="" /></a
-        >
+            <img class="img-fluid" src={artist.logo} alt="" />
+        </a>
     </div>
 
     <div class="cardContent">
