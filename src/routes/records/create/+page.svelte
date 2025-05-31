@@ -17,6 +17,7 @@
 
 <div class="container">
     <form method="POST" action="?/create">
+
         <div class="mb-3">
             <input
                 value="/default_record.jpg"
