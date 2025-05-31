@@ -21,7 +21,8 @@ export const actions = {
             lastlisten: data.get("lastlisten"),
             rating: data.get("rating"),
             highlights: data.get("highlights"),
-            cover: data.get("cover")            
+            cover: data.get("cover"),
+            stack: false,            
         }
         await db.createRecord(record);
         return { success: true }
