@@ -4,7 +4,6 @@ body {
 }
 
 .container {
-    /* margin-left: 60px; */
     margin-top: 10px
 }
 
@@ -18,23 +17,6 @@ body {
     margin-top: 20px;
 }
 
-
-
-.caroussel-info {
-    color: red;
-}
-
-
-
-
-
-
-/* .navbar-style{
-    background-color: #381111;
-    color: gainsboro;
-    border: 3px solid gainsboro;
-}
- */
 
 /* CARDS */
 .entity-card {
@@ -91,7 +73,6 @@ body {
     font-size: 24px;
     padding: 0px 2px;
     cursor: pointer;
-    transition: all 0.2s ease;
 }
 
 .star-rating label:hover,

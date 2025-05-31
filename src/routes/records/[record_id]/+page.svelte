@@ -46,6 +46,7 @@
     <input name="year" type="hidden" value={record.year} />
     <input name="genre" type="hidden" value={record.genre} />
 
+
     <!-- updateable Data -->
     <div class="container">
         <div class="row">
