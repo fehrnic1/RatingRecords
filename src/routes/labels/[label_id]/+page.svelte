@@ -2,7 +2,7 @@
     import RecordCard from "$lib/components/RecordCard.svelte";
     let { data } = $props();
     let label = data.label;
-    let records = data.records;
+     let records = $derived.by(() => {return data.records;});
 </script>
 
 <!-- DETAIL-CONTAINER -->

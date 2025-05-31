@@ -2,7 +2,8 @@
     import RecordCard from "$lib/components/RecordCard.svelte";
     let { data } = $props();
     let artist = data.artist;
-    let records = data.records;
+    let records = $derived.by(() => {return data.records;});
+
 </script>
 
 <!-- DETAIL-CONTAINER -->

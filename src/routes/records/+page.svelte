@@ -1,7 +1,8 @@
 <script>
   import RecordCard from "$lib/components/RecordCard.svelte";
   let { data } = $props();
-  let stackFilter = $state(false)
+  let stackFilter = $state(false);
+/*   let records = data.records; */
  
   // Überwachung von Änderungen an "records"
   let records = $derived.by(() => {
