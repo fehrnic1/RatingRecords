@@ -10,19 +10,19 @@
 
         <div class="row">
 
-            <div class="col-xl-8 col-lg-6">
+            <div class="col-6 mt-1">
                 <div class="title">
                     <a class="custom-link" href={"/records/" + record._id}
-                        >{record.title}</a
+                        ><h4>{record.title}</h4></a
                     >
                 </div>
                 <div>by {record.artist}</div>
             </div>
 
 
-            <div class="col-xl-4 col-lg-6">
+            <div class="col-6">
                 <div class="details">
-                    <!-- ADD TO STACK -->
+                    
                     {#if !record.stack}
                         <form method="POST" action="?/addToStack" use:enhance>
                             <input
@@ -30,10 +30,10 @@
                                 type="hidden"
                                 value={record._id}
                             />
-                            <button class="btn btn-success">Stack</button>
+                            <button class="btn btn-success">Add To Stack</button>
                         </form>
                     {/if}
-                    <!-- REMOVE FROM STACK -->
+                    
                     {#if record.stack}
                         <form
                             method="POST"
@@ -45,7 +45,7 @@
                                 type="hidden"
                                 value={record._id}
                             />
-                            <button class="btn btn-danger">Stack</button>
+                            <button class="btn btn-danger">Remove From Stack</button>
                         </form>
                     {/if}
 

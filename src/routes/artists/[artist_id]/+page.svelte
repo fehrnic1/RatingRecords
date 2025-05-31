@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col md-4">
             <div>
-                <img src={artist.logo} alt="" height="300" />
+                <img src={artist.logo} alt="" class="img-fluid" />
             </div>
         </div>
 
