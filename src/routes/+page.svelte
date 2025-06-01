@@ -15,7 +15,7 @@
 
 <div class="container">
   <div class="row">
-    
+
     <!-- //////////////////////// CAROUSEL LONG TIME NO LISTEN ////////////////////////////////// -->
     <div class="col-lg-6 col-md-12">
       <h2>Not Listened In a While</h2>
