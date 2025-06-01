@@ -39,7 +39,7 @@
         id="stackFilter"
       />
       <label class="form-check-label" for="stackFilter"
-        >Show Your Stack</label
+        ><h5>Show Your Stack</h5></label
       >
     </div>
   </div>
