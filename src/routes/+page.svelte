@@ -7,7 +7,7 @@
 
 <div class="container">
 <h1>RatingRecords</h1>
-<h5>Register, categorize and rate your vinyl</h5>
+<h5>Register, Categorize And Rate Your Colletion</h5>
 </div>
 
 <br />
