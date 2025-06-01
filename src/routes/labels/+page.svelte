@@ -19,7 +19,7 @@
 <div class="container categoryCard">
   <div class="row">
     {#each labels as label}
-      <div class="col-sm-6 col-md-4 col-lg-3 mb-4 gx-4">
+      <div class="col-xs-12 col-sm-6 col-lg-4 col-xl-3 mb-4 gx-4">
         <LabelCard {label}></LabelCard>
       </div>
     {/each}

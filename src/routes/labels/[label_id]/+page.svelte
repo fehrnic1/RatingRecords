@@ -20,7 +20,7 @@
             <div>Origin: {label.originCity} ({label.originCountry})</div>
             <div>
                 <a
-                    class="btn btn-danger mt-3"
+                    class="btn btn-warning mt-3"
                     role="button"
                     href={label.bandCampLink}
                     target="_blank">Band Camp</a
@@ -38,7 +38,7 @@
 <div class="container detailCard">
     <div class="row">
         {#each records as record}
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-4 gx-4">
+            <div class="col-xs-12 col-sm-6 col-lg-4 col-xl-3 mb-4 gx-4">
                 <RecordCard {record}></RecordCard>
             </div>
         {/each}
