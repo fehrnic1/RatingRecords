@@ -4,12 +4,15 @@
 
 <div class="container">
     <div class="row">
+
         <div class="col">
             <h1>Add a Label</h1>
         </div>
+
         <div class="col cornerButton">
             <a class="btn btn-danger" role="button" href="/labels">Back</a>
         </div>
+
     </div>
 </div>
 
@@ -25,6 +28,7 @@
         </div>
 
         <div class="row">
+
             <div class="col">
                 <div class="mb-3">
                     <label for="" class="form-label">Name</label>
@@ -42,9 +46,11 @@
                     />
                 </div>
             </div>
+
         </div>
 
         <div class="row">
+
             <div class="col">
                 <div class="mb-3">
                     <label for="" class="form-label">Origin City</label>
@@ -62,19 +68,23 @@
                     />
                 </div>
             </div>
+
         </div>
 
         <div class="row mt-4">
+
             <div class="col-md-4">
                 <button type="submit" class="btn btn-primary">
                     Add Label
                 </button>
             </div>
+
             <div class="col-md-8 mt-2 text-start">
                 {#if form?.success}
-                    <p>Label created</p>
+                    <p>Label Has Been Created</p>
                 {/if}
             </div>
+
         </div>
     </form>
 </div>

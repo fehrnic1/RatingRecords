@@ -4,18 +4,24 @@
   let labels = data.labels;
 </script>
 
-<div class="container topBar">
+<!-- HEAD -->
+
+<div class="container">
   <div class="row">
+
     <div class="col">
       <h1>LABELS</h1>
     </div>
+
     <div class="col cornerButton">
       <a class="btn btn-primary" role="button" href="/labels/create">Add a Label</a>
     </div>
+
   </div>
 </div>
 
-
+<!-- BODY -->
+ 
 <div class="container categoryCard">
   <div class="row">
     {#each labels as label}

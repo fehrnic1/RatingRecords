@@ -2,20 +2,21 @@
     import RecordCard from "$lib/components/RecordCard.svelte";
     let { data } = $props();
     let label = data.label;
-     let records = $derived.by(() => {return data.records;});
+    let records = $derived.by(() => {return data.records;});
 </script>
 
-<!-- DETAIL-CONTAINER -->
+<!-- HEAD -->
 
 <div class="container detailCard">
     <div class="row">
-        <div class="col md-4">
+
+        <div class="col">
             <div>
                 <img src={label.logo} alt="" class="img-fluid" />
             </div>
         </div>
 
-        <div class="col md-4">
+        <div class="col">
             <h1>{label.name}</h1>
             <div>Origin: {label.originCity} ({label.originCountry})</div>
             <div>
@@ -27,13 +28,15 @@
                 >
             </div>
         </div>
+
         <div class="col cornerButton">
             <a class="btn btn-danger" role="button" href="/labels">Back</a>
         </div>
+
     </div>
 </div>
 
-<!-- RECORD-CARDS BY LABEL -->
+<!-- BODY -->
 
 <div class="container detailCard">
     <div class="row">
