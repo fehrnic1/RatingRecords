@@ -4,16 +4,25 @@
     let labels = data.labels;
 </script>
 
+<!-- HEAD -->
+
 <div class="container">
+
     <div class="row">
+
         <div class="col">
             <h1>Add a Record</h1>
         </div>
+
         <div class="col cornerButton">
             <a class="btn btn-danger" role="button" href="/records">Back</a>
         </div>
+
     </div>
+
 </div>
+
+<!-- BODY -->
 
 <div class="container">
     <form method="POST" action="?/create">
@@ -28,6 +37,7 @@
         </div>
 
         <div class="row">
+
             <div class="col">
                 <div class="mb-3">
                     <label for="artist" class="form-label">Artist</label>
@@ -51,9 +61,11 @@
                     </select>
                 </div>
             </div>
+
         </div>
 
         <div class="row">
+
             <div class="col">
                 <div class="mb-3">
                     <label for="" class="form-label">Title</label>
@@ -67,9 +79,11 @@
                     <input name="year" class="form-control" type="number" />
                 </div>
             </div>
+
         </div>
 
         <div class="row">
+
             <div class="col">
                 <div class="mb-3">
                     <label for="" class="form-label">Runtime</label>
@@ -83,9 +97,11 @@
                     <input name="genre" class="form-control" type="text" />
                 </div>
             </div>
+
         </div>
 
         <div class="row">
+
             <div class="col">
                 <div class="mb-3">
                     <label for="" class="form-label">Last Listen</label>
@@ -99,9 +115,11 @@
                     <input name="highlights" class="form-control" type="text" />
                 </div>
             </div>
+
         </div>
 
         <div class="row">
+
             <div class="col">
                 <label class="form-label" for="">Rating</label><br />
                 <div class="star-rating">
@@ -123,19 +141,26 @@
             </div>
 
             <div class="col">
+
                 <div class="row mt-4">
+
                     <div class="col-md-4">
                         <button type="submit" class="btn btn-primary">
                             Add Record
                         </button>
                     </div>
+
                     <div class="col-md-8 mt-2 text-start">
                         {#if form?.success}
-                            <p>Record created!</p>
+                            <p>Record Has Been Added To Your Collection</p>
                         {/if}
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </form>
 </div>
