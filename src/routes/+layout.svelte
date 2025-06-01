@@ -4,10 +4,10 @@
 </script>
 
 <nav
-    class="navbar navbar-expand-md bg-body-tertiary bg-dark "
+    class="navbar navbar-expand-md bg-body-tertiary bg-dark"
     data-bs-theme="dark"
 >
-    <div class="container-fluid ">
+    <div class="container-fluid">
         <a class="navbar-brand" href="/">
             <img
                 src="/navbarvinyl.png"

@@ -3,35 +3,30 @@
   let { data } = $props();
   let oldRecords = data.oldRecords;
   let topRecords = data.topRecords;
+
 </script>
 
 <div class="container">
-<h1>RatingRecords</h1>
-<h5>Register, Categorize And Rate Your Colletion</h5>
+  <h1>RatingRecords</h1>
+  <h5>Register, Categorize And Rate Your Colletion</h5>
 </div>
 
 <br />
 
-
 <div class="container">
   <div class="row">
-
-<!-- //////////////////////// CAROUSEL LONG TIME NO LISTEN ////////////////////////////////// -->
-    <div class="col-xl-6">
+    
+    <!-- //////////////////////// CAROUSEL LONG TIME NO LISTEN ////////////////////////////////// -->
+    <div class="col-lg-6 col-md-12">
       <h2>Not Listened In a While</h2>
-      <div
-        id="longNoListen"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-
+      <div id="longNoListen" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner">
           {#each oldRecords as record}
             <div class="carousel-item active">
               <a class="custom-link" href={"/records/" + record._id}>
-              <img src={record.cover} class="d-block w-100" alt="" /></a>
-              <div class="carousel-caption d-none d-md-block">
-              </div>
+                <img src={record.cover} class="d-block w-100" alt="" /></a
+              >
+              <div class="carousel-caption d-none d-md-block"></div>
             </div>
           {/each}
         </div>
@@ -57,22 +52,17 @@
       </div>
     </div>
 
-<!-- ////////////////////////////// BEST RATED ////////////////////////////////////////////// -->
-<div class="col-xl-6">
+    <!-- ////////////////////////////// BEST RATED ////////////////////////////////////////////// -->
+    <div class="col-lg-6 col-md-12">
       <h2>Best Rated</h2>
-      <div
-        id="BestRated"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-
+      <div id="BestRated" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner">
           {#each topRecords as record}
             <div class="carousel-item active">
               <a class="custom-link" href={"/records/" + record._id}>
-              <img src={record.cover} class="d-block w-100" alt="" /></a>
-              <div class="carousel-caption d-none d-md-block">
-              </div>
+                <img src={record.cover} class="d-block w-100" alt="" /></a
+              >
+              <div class="carousel-caption d-none d-md-block"></div>
             </div>
           {/each}
         </div>
@@ -96,10 +86,10 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
-        
       </div>
     </div>
-<!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
 
   </div>
 </div>
