@@ -30,7 +30,8 @@ export const actions ={
         return{success: true}
     },
 
-/*      Importing redirect, and throw of redirect needed in Svelte */
+/*      Importing redirect, and throw of redirect needed in Svelte 
+        303 --> See other (GET after DELETE) */
         delete: async ({request}) => {
         const data = await request.formData();
         await db.deleteRecord(data.get("id"));

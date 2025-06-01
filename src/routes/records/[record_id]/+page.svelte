@@ -3,7 +3,8 @@
     let record = data.record;
 </script>
 
-<!-- ///////////////////////////  CONTAINER BODY  ///////////////////////////////////// -->
+<!-- HEAD -->
+
 <div class="container detailCard">
     <div class="row">
         <div class="col">
@@ -19,6 +20,7 @@
             <div>Runtime: {record.runtime} minutes</div>
             <div>Year: {record.year}</div>
             <div>Genre: {record.genre}</div>
+
             <br />
 
             <form method="POST" action="?/delete">
@@ -27,13 +29,15 @@
             </form>
 
         </div>
+
         <div class="col cornerButton">
             <a class="btn btn-danger" role="button" href="/records">Back</a>
         </div>
+
     </div>
 </div>
 
-<!-- ///////////////////////////  DATA UPDATE  ///////////////////////////////////// -->
+<!-- BODY -->
 
 <form method="POST" action="?/update">
     <!-- non-updateable Data -->
@@ -50,6 +54,7 @@
     <!-- updateable Data -->
     <div class="container">
         <div class="row">
+
             <div class="col">
                 <div class="mb-3">
                     <label class="form-label" for="">Last Listen:</label>
@@ -63,7 +68,8 @@
             </div>
 
             <div class="col">
-                <label class="form-label" for="">Rating</label><br />
+                <label class="form-label" for="">Rating</label>
+                <br />
                 <div class="star-rating">
                     <input
                         type="radio"
@@ -107,9 +113,11 @@
                     <label for="star1" class="bi bi-star-fill"></label>
                 </div>
             </div>
+
         </div>
 
         <div class="row">
+
             <div class="col">
                 <div class="mb-3">
                     <label class="form-label" for="">Highlights</label>
@@ -134,17 +142,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </form>
-
-<!-- OLD RATING -->
-<!--  <div class="mb-3">
-                    <label class="form-lable" for="">Rating</label>
-                    <input
-                        value={record.rating}
-                        name="rating"
-                        class="form-control"
-                        type="number"
-                    />
-                </div> -->
