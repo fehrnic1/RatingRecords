@@ -2,11 +2,9 @@
   import RecordCard from "$lib/components/RecordCard.svelte";
   let { data } = $props();
   let stackFilter = $state(false);
-/*   let records = data.records; */
  
-  // Überwachung von Änderungen an "records"
+  // Überwachung von Änderungen an "records" druch "derived"
   let records = $derived.by(() => {
-
     if (stackFilter === true) {
       return data.records.filter ((record) => record.stack === true);
     }
@@ -14,6 +12,8 @@
   });
 
 </script>
+
+<!-- HEAD -->
 
 <div class="container">
   <div class="row">
@@ -23,9 +23,9 @@
 
     
     <div class="col cornerButton">
-      <a class="btn btn-primary" role="button" href="/records/create"
-        >Add a Record</a
-      >
+      <a class="btn btn-primary" role="button" href="/records/create">
+        Add a Record
+      </a>
     </div>
   </div>
 
@@ -38,21 +38,21 @@
         type="checkbox"
         id="stackFilter"
       />
-      <label class="form-check-label" for="stackFilter"
-        ><h5>Show Your Stack</h5></label
-      >
+      <label class="form-check-label" for="stackFilter">
+        <h5>Show Your Stack</h5>
+      </label>
+
     </div>
   </div>
   </div>
-
-
-
 </div>
+
+<!-- BODY -->
 
 <div class="container categoryCard">
   <div class="row">
     {#each records as record}
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mb-4 gx-4">
+      <div class="col-xs-12 col-sm-6 col-lg-4 col-xl-3 mb-4 gx-4">
         <RecordCard {record}></RecordCard>
       </div>
     {/each}
